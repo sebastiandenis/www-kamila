@@ -1,3 +1,17 @@
+
+/* my colors
+
+tomato: #D73A31;
+teal: #08708A;
+teal-dark: #076278;
+cerulean: #56B1BF;
+stone wash: #D0D3C5;
+hunter: #032B2F;
+
+*/
+
+
+
 /*
 * Template Name: Sunshine - Responsive vCard Template v2
 * Author: LMPixels
@@ -672,7 +686,7 @@ ul.social-links li:last-child a {
 }
 
 .site-main-menu li.active a:after {
-  background-color: #2fc0d1;
+  background-color: #2fc0d1; 
 }
 /* /Main menu */
 
@@ -686,7 +700,8 @@ ul.social-links li:last-child a {
   position: relative;
   margin: 0 0 0 -80px;
   padding: 10px 20px 10px 78px;
-  background-color: #2fc0d1;
+  background-color: #2fc0d1; 
+
   color: #fff;
   line-height: 1.1em;
   font-weight: 500;
@@ -702,7 +717,7 @@ ul.social-links li:last-child a {
   left: 0px;
   content: "";
   border-bottom: 10px solid transparent;
-  border-right: 10px solid #28a9b8;
+border-right: 10px solid #28a9b8; 
 }
 
 .section-description {
@@ -725,7 +740,7 @@ ul.social-links li:last-child a {
   width: 100%;
   height: 2px;
   margin-top: -1px;
-  background-color: #2fc0d1;
+ background-color: #2fc0d1; 
 }
 
 
@@ -1334,7 +1349,7 @@ ul.social-links li:last-child a {
 
 .blog-card .post-date {
   display: inline-block;
-  background-color: #2fc0d1;
+    background-color: #2fc0d1; 
   padding: 0.3em;
   text-align: center;
   position: absolute;

@@ -1,0 +1,123 @@
+/* my colors
+
+tomato: #D73A31;
+teal: #08708A;
+teal-dark: #076278;
+cerulean: #56B1BF;
+stone wash: #D0D3C5;
+stone wash light: #f3f4f0;
+hunter: #032B2F;
+
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  color: #032B2F;
+}
+
+
+/* Buttons */
+input[type=submit], input[type=button], button, a.button {
+  border: 2px solid #D73A31;
+  color: #032B2F;
+}
+
+
+input[type=submit]:hover, input[type=submit]:focus, input[type=button]:focus, button:hover, button:focus, a.button:hover, a.button:focus {
+  color: #fff;
+  background-color: #D73A31;
+}
+
+.form-control,
+.form-control:focus,
+.has-error .form-control,
+.has-error .form-control:focus {
+  border: 1px solid #D0D3C5;
+}
+
+.form-control + .form-control-border {
+
+  background: #56B1BF;
+
+}
+
+
+
+.site-title {
+  color: #032B2F;
+}
+
+.site-main-menu li a,
+.site-main-menu li a:hover {
+  color: #032B2F;
+}
+
+.site-main-menu li.active a:after {
+background-color: #D73A31;
+}
+
+.site-main-menu li a:hover,
+.site-main-menu li.active a {
+  background-color: #f3f4f0;
+}
+
+
+.info-list li .title:after {
+  background-color: #56B1BF;
+}
+
+
+.block-title h3:after {
+    background-color: #D73A31;
+}
+
+.section-title {
+    background-color: #08708a;
+}
+
+.section-title:after {
+    border-right: 10px solid #076278;
+}
+
+
+
+
+.blog-card .post-date {
+  display: inline-block;
+  background-color: #D73A31;
+
+}
+
+ul.social-links li a {
+  color: #f3f4f0;
+  background-color: #08708A;
+
+}
+
+ul.social-links li a:hover {
+  background-color: #D73A31;
+}
+
+
+.portfolio-filters li a:hover {
+  background-color: #f3f4f0;
+}
+
+.portfolio-filters li.active a,
+.portfolio-filters li.active a:hover {
+  background-color: #D73A31;
+}
+
+.portfolio-grid figure a div h5:after {
+  background-color: #D73A31;
+}
+
+.testimonials.owl-carousel .owl-nav .owl-prev,
+.testimonials.owl-carousel .owl-nav .owl-next {
+  background-color: #f3f4f0;
+}
+
+
+.testimonials.owl-carousel .owl-nav .owl-prev:hover,
+.testimonials.owl-carousel .owl-nav .owl-next:hover {
+  background-color: #D73A31;
+}
