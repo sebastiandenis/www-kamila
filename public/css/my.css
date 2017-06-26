@@ -4,6 +4,7 @@ tomato: #D73A31;
 teal: #08708A;
 teal-dark: #076278;
 cerulean: #56B1BF;
+cerulean-dark: #388894;
 stone wash: #D0D3C5;
 stone wash light: #f3f4f0;
 hunter: #032B2F;
@@ -40,6 +41,14 @@ input[type=submit]:hover, input[type=submit]:focus, input[type=button]:focus, bu
 
 }
 
+.event-date {
+  background-color: #56B1BF;
+}
+
+.event-date:after {
+  border-right: 5px solid #388894;;
+}
+
 
 
 .site-title {
@@ -57,7 +66,7 @@ background-color: #D73A31;
 
 .site-main-menu li a:hover,
 .site-main-menu li.active a {
-  background-color: #f3f4f0;
+  background-color: #D0D3C5;
 }
 
 
@@ -95,6 +104,10 @@ ul.social-links li a {
 
 ul.social-links li a:hover {
   background-color: #D73A31;
+}
+
+ul.social-links li a:hover {
+  color:  #fff;
 }
 
 
