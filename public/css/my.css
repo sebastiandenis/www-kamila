@@ -136,6 +136,7 @@ p.site-description {
   background-color: #e57373;
 }
 
+
 .info-list li .title:after {
   background-color: #e57373;
 }
@@ -339,4 +340,24 @@ button.red:hover, a.button.red:hover {
 
 .section-with-bg {
   background-image: url('../images/main_pic.jpg');
+}
+
+.home-page-block-bg .mask {
+  background: rgba(34, 39, 43, 0.5);
+}
+
+.home-page-block .info-list li, .home-page-block .info-list li span.title, .home-page-block .info-list li a {
+  color: #fff;
+  padding-bottom: 5px;
+}
+
+.text-rotate {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .section-with-bg {
+    background-image: url('../images/main_pic2.jpg');
+  }
 }
