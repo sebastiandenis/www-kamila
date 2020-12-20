@@ -40,6 +40,14 @@ h6 {
   background-color: #22272b;
 }
 
+a, a:visited, a:active {
+  color: #22272b; 
+}
+
+a:hover {
+  color: #e57373;
+}
+
 /* Buttons */
 input[type='submit'],
 input[type='button'],
@@ -129,7 +137,7 @@ p.site-description {
 }
 
 .info-list li .title:after {
-  background-color: #56b1bf;
+  background-color: #e57373;
 }
 
 .block-title h3:after {
@@ -200,12 +208,15 @@ ul.social-links li a i {
 
 .services-icons {
   font-size: 72px;
-  color: #5c6bc0;
+  color: rgba(92, 107, 192, 0.2)
+  
 }
 
 .fun-fact-block {
   padding: 15px 20px;
   box-shadow: 1px 3px 8px rgba(92, 107, 192, 0.3);
+  min-height: 300px;
+  
 }
 
 .fun-fact-block.gray-bg {
@@ -324,4 +335,8 @@ button.red:hover, a.button.red:hover {
   border: 1px solid #e57373;
   background-color: #e57373;
   color: #fff;
+}
+
+.section-with-bg {
+  background-image: url('../images/main_pic.jpg');
 }
