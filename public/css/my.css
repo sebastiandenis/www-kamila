@@ -361,3 +361,9 @@ button.red:hover, a.button.red:hover {
     background-image: url('../images/main_pic2.jpg');
   }
 }
+
+
+.owl-carousel {
+  /* prevent Chrome error: Unable to preventDefault inside passive  */
+  touch-action: manipulation; 
+}
