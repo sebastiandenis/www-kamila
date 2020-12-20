@@ -356,7 +356,7 @@ button.red:hover, a.button.red:hover {
   margin-bottom: 15px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 991px) {
   .section-with-bg {
     background-image: url('../images/main_pic2.jpg');
   }
