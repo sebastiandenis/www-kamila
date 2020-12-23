@@ -32,6 +32,10 @@ h6 {
   color: #22272b;
 }
 
+.dot1, .dot2 {
+  background-color: #e57373;
+}
+
 .header {
   background-color: #22272b;
 }
