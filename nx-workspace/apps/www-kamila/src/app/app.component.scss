@@ -91,10 +91,11 @@
 }
 
 :host ::ng-deep .sense-card.p-card {
-	background: rgba(250, 249, 246, 0.82);
-	border: 1px solid rgba(63, 83, 68, 0.12);
-	border-radius: 1.4rem;
-	box-shadow: 0 24px 70px rgba(63, 83, 68, 0.08);
+	backdrop-filter: blur(18px);
+	background: rgba(255, 255, 255, 0.62);
+	border: 1px solid rgba(255, 255, 255, 0.72);
+	border-radius: 2rem;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86), 0 24px 70px rgba(63, 83, 68, 0.1);
 	overflow: hidden;
 }
 
