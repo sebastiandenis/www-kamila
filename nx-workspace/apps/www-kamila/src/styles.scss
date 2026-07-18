@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@import 'primeicons/primeicons.css';
+
+:root {
+	--app-bg: color-mix(in srgb, var(--p-primary-50) 45%, white);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--app-bg);
+	color: var(--p-surface-900);
+	font-family: var(--font-family);
+}

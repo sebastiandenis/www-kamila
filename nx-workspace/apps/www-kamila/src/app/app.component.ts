@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { Button } from 'primeng/button';
+import { Card } from 'primeng/card';
+import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, Button, Card, NgIconComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'www-kamila';
+  title = signal('www-kamila');
 }

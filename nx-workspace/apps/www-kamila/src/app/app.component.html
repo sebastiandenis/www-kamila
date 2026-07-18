@@ -1,2 +1,67 @@
-<app-nx-welcome></app-nx-welcome>
-<router-outlet></router-outlet>
+<div class="min-h-screen bg-[radial-gradient(1100px_circle_at_15%_15%,var(--p-primary-100),transparent_45%),radial-gradient(900px_circle_at_90%_10%,var(--p-primary-50),transparent_50%)]">
+	<main class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-10 md:px-10 md:py-16">
+		<p-card styleClass="border border-surface-200/70 shadow-xl">
+			<ng-template #header>
+				<div class="flex items-center justify-between border-b border-surface-200 px-6 py-5">
+					<div class="flex items-center gap-3">
+						<ng-icon name="tablerPalette" class="text-2xl text-primary"></ng-icon>
+						<div>
+							<p class="m-0 text-sm uppercase tracking-[0.2em] text-surface-500">PrimeNG + Tailwind v4</p>
+							<h1 class="m-0 text-2xl font-semibold text-surface-900">{{ title() }}</h1>
+						</div>
+					</div>
+
+					<div class="hidden items-center gap-2 sm:flex">
+						<ng-icon name="tablerBrandFacebook" class="text-xl text-surface-500"></ng-icon>
+						<ng-icon name="tablerBrandInstagram" class="text-xl text-surface-500"></ng-icon>
+					</div>
+				</div>
+			</ng-template>
+
+			<p class="m-0 leading-relaxed text-surface-700">
+				UI stack is configured for this app: PrimeNG with Aura theme, Tailwind CSS v4 utilities,
+				and Tabler icons via ng-icons providers.
+			</p>
+
+			<div class="mt-6 grid gap-4 sm:grid-cols-3">
+				<div class="rounded-xl border border-surface-200 bg-surface-0 p-4">
+					<div class="mb-2 flex items-center gap-2 text-surface-600">
+						<ng-icon name="tablerPhoto" class="text-lg"></ng-icon>
+						<span class="text-sm font-medium">Portfolio</span>
+					</div>
+					<p class="m-0 text-sm text-surface-500">Ready for gallery and case study cards.</p>
+				</div>
+
+				<div class="rounded-xl border border-surface-200 bg-surface-0 p-4">
+					<div class="mb-2 flex items-center gap-2 text-surface-600">
+						<ng-icon name="tablerMail" class="text-lg"></ng-icon>
+						<span class="text-sm font-medium">Contact</span>
+					</div>
+					<p class="m-0 text-sm text-surface-500">Prepared for form and quick contact actions.</p>
+				</div>
+
+				<div class="rounded-xl border border-surface-200 bg-surface-0 p-4">
+					<div class="mb-2 flex items-center gap-2 text-surface-600">
+						<ng-icon name="tablerMapPin" class="text-lg"></ng-icon>
+						<span class="text-sm font-medium">Location</span>
+					</div>
+					<p class="m-0 text-sm text-surface-500">Great base for region and service area details.</p>
+				</div>
+			</div>
+
+			<ng-template #footer>
+				<div class="mt-8 flex flex-wrap items-center gap-3">
+					<p-button label="Explore" icon="pi pi-compass" [raised]="true"></p-button>
+					<p-button label="Call" icon="pi pi-phone" [outlined]="true" severity="secondary"></p-button>
+					<span class="ml-auto hidden items-center gap-2 text-sm text-surface-500 sm:inline-flex">
+						<ng-icon name="tablerHome" class="text-base"></ng-icon>
+						<ng-icon name="tablerPhone" class="text-base"></ng-icon>
+						<ng-icon name="tablerArrowRight" class="text-base"></ng-icon>
+					</span>
+				</div>
+			</ng-template>
+		</p-card>
+
+		<router-outlet></router-outlet>
+	</main>
+</div>
