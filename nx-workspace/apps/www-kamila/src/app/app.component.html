@@ -1,9 +1,9 @@
 <div class="min-h-screen overflow-x-hidden bg-warm-white text-charcoal">
-	<header class="fixed inset-x-0 top-0 z-50 border-b border-forest-green/10 bg-warm-white/88 backdrop-blur-xl">
+	<header class="site-header fixed inset-x-0 top-0 z-50 border-b border-forest-green/10 bg-warm-white/88 backdrop-blur-xl">
 		<nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
 			<button class="flex items-center gap-3 text-left" type="button" (click)="scrollTo('home')">
 				<img class="h-10 w-auto object-contain opacity-80" src="media/logo02.jpg" alt="Kamila Denis logo" />
-				<span class="hidden text-xs uppercase tracking-[0.28em] text-forest-green sm:block">Kamila Denis</span>
+				<span class="text-xs uppercase tracking-[0.28em] text-forest-green sm:block">Kamila Denis</span>
 			</button>
 
 			<div class="hidden items-center gap-7 lg:flex">
@@ -49,7 +49,7 @@
 					<p class="max-w-2xl text-xl leading-8 text-charcoal/80">{{ 'hero.subtitle' | translate }}</p>
 					<div class="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
 						<p-button [label]="'hero.cta' | translate" icon="pi pi-arrow-down" styleClass="cta-button" (onClick)="scrollTo('philosophy')"></p-button>
-						<button class="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-forest-green" type="button" (click)="scrollTo('contact')">
+						<button class="secondary-cta inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-forest-green" type="button" (click)="scrollTo('contact')">
 							{{ 'hero.secondaryCta' | translate }}
 							<ng-icon name="tablerArrowRight" class="text-lg"></ng-icon>
 						</button>
@@ -78,7 +78,7 @@
 				</div>
 
 				<div pAnimateOnScroll enterClass="reveal-drift-left scroll-delay-1" leaveClass="reveal-drift-left-out" [once]="true" class="order-1">
-					<div class="overflow-hidden rounded-[1.75rem] border border-[#9b6a36]/20 bg-[linear-gradient(145deg,rgba(122,154,131,0.12),rgba(180,122,58,0.1))] p-3 shadow-2xl shadow-[#9b6a36]/12">
+					<div class="editorial-photo overflow-hidden rounded-[1.75rem] border border-[#9b6a36]/20 bg-[linear-gradient(145deg,rgba(122,154,131,0.12),rgba(180,122,58,0.1))] p-3 shadow-2xl shadow-[#9b6a36]/12">
 						<img class="aspect-[4/5] w-full rounded-[1.25rem] object-cover" src="media/me2.jpeg" alt="Interior detail with greenery" />
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 
 		<section id="about" class="section-space bg-[radial-gradient(circle_at_18%_18%,rgba(180,122,58,0.13),transparent_30%),linear-gradient(180deg,rgba(122,154,131,0.16),rgba(122,154,131,0.08))] px-5 lg:px-8">
 			<div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.85fr_1.15fr]">
-				<div pAnimateOnScroll enterClass="reveal-photo-swing" leaveClass="reveal-photo-swing-out" [once]="true" class="relative overflow-hidden rounded-[2.5rem] border border-[#b47a3a]/25 bg-white/30 p-3 shadow-2xl shadow-[#9b6a36]/18">
+				<div pAnimateOnScroll enterClass="reveal-photo-swing" leaveClass="reveal-photo-swing-out" [once]="true" class="editorial-photo relative overflow-hidden rounded-[2.5rem] border border-[#b47a3a]/25 bg-white/30 p-3 shadow-2xl shadow-[#9b6a36]/18">
 					<div class="absolute -right-4 -top-5 h-28 w-28 rounded-full border border-gold-accent/35"></div>
 					<img class="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl shadow-forest-green/10" src="media/me.jpg" alt="Kamila Denis" />
 				</div>
@@ -124,7 +124,7 @@
 					<h2 class="section-title">{{ 'about.title' | translate }}</h2>
 					<p class="mt-7 leading-8 text-charcoal/78">{{ 'about.paragraph1' | translate }}</p>
 					<p class="mt-5 leading-8 text-charcoal/78">{{ 'about.paragraph2' | translate }}</p>
-					<div class="mt-10 overflow-hidden rounded-[1.5rem] border border-white/70 bg-warm-white/80 shadow-2xl shadow-forest-green/10">
+					<div class="manifest-card mt-10 overflow-hidden rounded-[1.5rem] border border-white/70 bg-warm-white/80 shadow-2xl shadow-forest-green/10">
 						<div class="flex items-center gap-3 border-b border-sage-green/20 px-6 py-4 sm:px-8">
 							<span class="flex h-11 w-11 items-center justify-center rounded-full bg-gold-accent/14 text-gold-accent">
 								<ng-icon name="tablerSunHigh" class="text-2xl"></ng-icon>
@@ -143,7 +143,7 @@
 
 		<section id="workshops" class="section-space bg-[linear-gradient(180deg,#ffffff_0%,rgba(250,249,246,0.82)_100%)] px-5 lg:px-8">
 			<div class="mx-auto max-w-5xl">
-				<div pAnimateOnScroll enterClass="reveal-panel" leaveClass="reveal-panel-out" [once]="true" class="rounded-[2rem] border border-[#b47a3a]/35 bg-[radial-gradient(circle_at_88%_18%,rgba(180,122,58,0.18),transparent_28%),linear-gradient(135deg,#faf9f6_0%,#eef5ee_100%)] p-8 shadow-2xl shadow-[#9b6a36]/12 sm:p-12">
+				<div pAnimateOnScroll enterClass="reveal-panel" leaveClass="reveal-panel-out" [once]="true" class="workshop-panel rounded-[2rem] border border-[#b47a3a]/35 bg-[radial-gradient(circle_at_88%_18%,rgba(180,122,58,0.18),transparent_28%),linear-gradient(135deg,#faf9f6_0%,#eef5ee_100%)] p-8 shadow-2xl shadow-[#9b6a36]/12 sm:p-12">
 					<div class="mb-8 flex flex-wrap items-center gap-3">
 						<span class="rounded-full bg-forest-green px-4 py-2 text-xs uppercase tracking-[0.22em] text-warm-white">{{ 'workshop.badge' | translate }}</span>
 						<span class="h-px flex-1 bg-gold-accent/40"></span>
@@ -172,6 +172,11 @@
 					<a class="contact-button contact-button-secondary" href="tel:+48664726723">
 						<ng-icon name="tablerPhone" class="text-xl"></ng-icon>
 						+48 664 726 723
+					</a>
+				</div>
+				<div class="mt-8 flex justify-center">
+					<a class="flex h-12 w-12 items-center justify-center rounded-full border border-warm-white/35 text-warm-white transition hover:-translate-y-1 hover:border-gold-accent hover:bg-warm-white/10 hover:text-gold-accent" href="https://www.facebook.com/kamiladenisarchitektwnetrz" target="_blank" rel="noopener noreferrer" aria-label="Facebook - Kamila Denis Architekt Wnętrz" title="Facebook">
+						<ng-icon name="tablerBrandFacebook" class="text-2xl"></ng-icon>
 					</a>
 				</div>
 			</div>

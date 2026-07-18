@@ -3,6 +3,7 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { provideIcons } from '@ng-icons/core';
 import {
   tablerArrowRight,
+  tablerBrandFacebook,
   tablerDroplet,
   tablerLanguage,
   tablerMail,
@@ -24,6 +25,7 @@ describe('AppComponent', () => {
         provideTranslateService({ lang: 'pl', fallbackLang: 'en' }),
         provideIcons({
           tablerArrowRight,
+          tablerBrandFacebook,
           tablerDroplet,
           tablerLanguage,
           tablerMail,

@@ -1,3 +1,7 @@
+.site-header {
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75), 0 12px 40px rgba(63, 83, 68, 0.06);
+}
+
 .nav-link {
 	position: relative;
 	border: 0;
@@ -52,18 +56,39 @@
 }
 
 .section-space {
+	position: relative;
 	padding-bottom: clamp(5rem, 9vw, 8rem);
 	padding-top: clamp(5rem, 9vw, 8rem);
 	scroll-margin-top: 5.5rem;
 }
 
+.section-space::before {
+	background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-gold-accent) 26%, transparent), transparent);
+	content: '';
+	height: 1px;
+	left: 8%;
+	position: absolute;
+	right: 8%;
+	top: 0;
+}
+
 .section-kicker {
+	align-items: center;
 	color: var(--color-gold-accent);
+	display: flex;
 	font-size: 0.78rem;
 	font-weight: 700;
 	letter-spacing: 0.22em;
 	margin: 0 0 1rem;
 	text-transform: uppercase;
+}
+
+.section-kicker::before {
+	background: currentColor;
+	content: '';
+	height: 1px;
+	margin-right: 0.8rem;
+	width: 2rem;
 }
 
 .section-title {
@@ -83,11 +108,82 @@
 	font-weight: 700;
 	letter-spacing: 0.04em;
 	padding: 0.95rem 1.35rem;
+	box-shadow: 0 14px 34px rgba(63, 83, 68, 0.2);
+	transition: box-shadow 220ms ease, transform 220ms ease, background 220ms ease;
 }
 
 :host ::ng-deep .cta-button.p-button:not(:disabled):hover {
 	background: #314037;
 	border-color: #314037;
+	box-shadow: 0 18px 42px rgba(49, 64, 55, 0.28);
+	transform: translateY(-2px);
+}
+
+.secondary-cta {
+	position: relative;
+}
+
+.secondary-cta::after {
+	background: var(--color-gold-accent);
+	bottom: -0.35rem;
+	content: '';
+	height: 1px;
+	left: 0;
+	position: absolute;
+	transform: scaleX(0.3);
+	transform-origin: left;
+	transition: transform 220ms ease;
+	width: 100%;
+}
+
+.secondary-cta:hover::after {
+	transform: scaleX(1);
+}
+
+.secondary-cta ng-icon {
+	transition: transform 220ms ease;
+}
+
+.secondary-cta:hover ng-icon {
+	transform: translateX(0.3rem);
+}
+
+.main-photo,
+.editorial-photo {
+	transition: box-shadow 420ms ease, transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.main-photo::after,
+.editorial-photo::after {
+	background: linear-gradient(115deg, transparent 25%, rgba(255, 255, 255, 0.28) 46%, transparent 66%);
+	content: '';
+	inset: 0;
+	pointer-events: none;
+	position: absolute;
+	transform: translateX(-110%);
+	transition: transform 700ms ease;
+	z-index: 2;
+}
+
+.main-photo:hover,
+.editorial-photo:hover {
+	box-shadow: 0 34px 76px rgba(63, 83, 68, 0.18), 0 12px 30px rgba(155, 106, 54, 0.14);
+	transform: translateY(-0.35rem);
+}
+
+.main-photo:hover::after,
+.editorial-photo:hover::after {
+	transform: translateX(110%);
+}
+
+.main-photo img,
+.editorial-photo img {
+	transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.main-photo:hover img,
+.editorial-photo:hover img {
+	transform: scale(1.025);
 }
 
 :host ::ng-deep .sense-card.p-card {
@@ -98,6 +194,13 @@
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 24px 70px rgba(63, 83, 68, 0.1), 0 18px 54px var(--sense-glow);
 	overflow: hidden;
 	position: relative;
+	transition: border-color 260ms ease, box-shadow 320ms ease, transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+:host ::ng-deep .sense-card.p-card:hover {
+	border-color: color-mix(in srgb, var(--sense-accent) 42%, white);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 34px 80px rgba(63, 83, 68, 0.14), 0 22px 60px var(--sense-glow);
+	transform: translateY(-0.5rem);
 }
 
 :host ::ng-deep .sense-card.p-card::before {
@@ -138,6 +241,34 @@
 	height: 3.65rem;
 	justify-content: center;
 	width: 3.65rem;
+	transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+:host ::ng-deep .sense-card.p-card:hover .sense-card-icon {
+	transform: rotate(-4deg) scale(1.06);
+}
+
+.manifest-card {
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 30px 80px rgba(63, 83, 68, 0.12), 0 10px 30px rgba(155, 106, 54, 0.08);
+}
+
+.workshop-panel {
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 35px 90px rgba(63, 83, 68, 0.12), 0 18px 44px rgba(155, 106, 54, 0.1);
+	isolation: isolate;
+	overflow: hidden;
+	position: relative;
+}
+
+.workshop-panel::after {
+	border: 1px solid color-mix(in srgb, var(--color-gold-accent) 30%, transparent);
+	border-radius: 50%;
+	content: '';
+	height: 13rem;
+	position: absolute;
+	right: -5rem;
+	top: -6rem;
+	width: 13rem;
+	z-index: -1;
 }
 
 .contact-button {
@@ -152,11 +283,22 @@
 	justify-content: center;
 	padding: 0.95rem 1.35rem;
 	text-decoration: none;
+	box-shadow: 0 16px 40px rgba(15, 28, 20, 0.2);
+	transition: background 220ms ease, box-shadow 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.contact-button:hover {
+	box-shadow: 0 20px 48px rgba(15, 28, 20, 0.28);
+	transform: translateY(-3px);
 }
 
 .contact-button-secondary {
 	background: transparent;
 	color: var(--color-warm-white);
+}
+
+.contact-button-secondary:hover {
+	background: rgba(255, 255, 255, 0.1);
 }
 
 .scroll-delay-1 {
@@ -250,10 +392,22 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	[class*='reveal-'] {
+	.p-animateonscroll {
 		animation: none;
 		filter: none;
-		opacity: 1;
+		opacity: 1 !important;
 		transform: none;
+	}
+
+	.main-photo,
+	.editorial-photo,
+	.main-photo img,
+	.editorial-photo img,
+	.secondary-cta ng-icon,
+	:host ::ng-deep .cta-button.p-button,
+	:host ::ng-deep .sense-card.p-card,
+	:host ::ng-deep .sense-card-icon,
+	.contact-button {
+		transition: none;
 	}
 }
