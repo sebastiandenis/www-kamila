@@ -2,7 +2,7 @@
 	<header class="fixed inset-x-0 top-0 z-50 border-b border-forest-green/10 bg-warm-white/88 backdrop-blur-xl">
 		<nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
 			<button class="flex items-center gap-3 text-left" type="button" (click)="scrollTo('home')">
-				<img class="h-10 w-auto object-contain" src="media/logo02.jpg" alt="Kamila Denis logo" />
+				<img class="h-10 w-auto object-contain opacity-80" src="media/logo02.jpg" alt="Kamila Denis logo" />
 				<span class="hidden text-xs uppercase tracking-[0.28em] text-forest-green sm:block">Kamila Denis</span>
 			</button>
 
@@ -38,7 +38,7 @@
 	</header>
 
 	<main>
-		<section id="home" class="relative flex min-h-screen items-center overflow-hidden px-5 pt-28 lg:px-8">
+		<section id="home" class="relative z-10 flex min-h-screen items-center overflow-hidden bg-[#faf9f6] px-5 pb-16 pt-28 shadow-[0_28px_80px_rgba(155,106,54,0.16)] lg:px-8 lg:pb-20">
 			<img class="pointer-events-none absolute left-0 top-16 w-52 opacity-75 sm:w-72 lg:w-96" src="media/top-left-corner-plant.jpg" alt="" />
 			<img class="pointer-events-none absolute bottom-0 right-0 w-56 opacity-70 sm:w-80 lg:w-[28rem]" src="media/bottom-right-corner-plant.jpeg" alt="" />
 
@@ -56,16 +56,17 @@
 					</div>
 				</div>
 
-				<div pAnimateOnScroll enterClass="reveal-zoom scroll-delay-1" leaveClass="reveal-zoom-out" [once]="true" class="relative mx-auto w-full max-w-xl">
+				<div pAnimateOnScroll enterClass="reveal-zoom scroll-delay-1" leaveClass="reveal-zoom-out" [once]="true" class="relative mx-auto mb-6 w-full max-w-xl lg:mb-0">
 					<div class="absolute -left-6 top-10 h-40 w-40 rounded-full bg-sage-green/20 blur-3xl"></div>
-					<div class="main-photo relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/55 p-3 shadow-2xl shadow-forest-green/10">
+					<div class="absolute -right-5 bottom-16 h-44 w-44 rounded-full bg-[#b47a3a]/18 blur-3xl"></div>
+					<div class="main-photo relative overflow-hidden rounded-[2rem] border border-[#b47a3a]/20 bg-white/55 p-3 shadow-2xl shadow-[#9b6a36]/15">
 						<img class="aspect-[4/5] w-full rounded-[1.5rem] object-cover" src="media/my-space.jpg" alt="Plant-filled interior with natural light" />
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section id="philosophy" class="section-space bg-white px-5 lg:px-8">
+		<section id="philosophy" class="section-space bg-[linear-gradient(135deg,#ffffff_0%,#faf9f6_54%,rgba(180,122,58,0.1)_100%)] px-5 lg:px-8">
 			<div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
 				<div pAnimateOnScroll enterClass="reveal-drift-right" leaveClass="reveal-drift-right-out" [once]="true" class="order-2">
 					<p class="section-kicker">{{ 'philosophy.kicker' | translate }}</p>
@@ -77,8 +78,8 @@
 				</div>
 
 				<div pAnimateOnScroll enterClass="reveal-drift-left scroll-delay-1" leaveClass="reveal-drift-left-out" [once]="true" class="order-1">
-					<div class="overflow-hidden rounded-[1.75rem] bg-sage-green/10 p-3">
-						<img class="aspect-[5/4] w-full rounded-[1.25rem] object-cover" src="media/my-space.jpg" alt="Interior detail with greenery" />
+					<div class="overflow-hidden rounded-[1.75rem] border border-[#9b6a36]/20 bg-[linear-gradient(145deg,rgba(122,154,131,0.12),rgba(180,122,58,0.1))] p-3 shadow-2xl shadow-[#9b6a36]/12">
+						<img class="aspect-[4/5] w-full rounded-[1.25rem] object-cover" src="media/me2.jpeg" alt="Interior detail with greenery" />
 					</div>
 				</div>
 			</div>
@@ -111,9 +112,9 @@
 			</div>
 		</section>
 
-		<section id="about" class="section-space bg-sage-green/16 px-5 lg:px-8">
+		<section id="about" class="section-space bg-[radial-gradient(circle_at_18%_18%,rgba(180,122,58,0.13),transparent_30%),linear-gradient(180deg,rgba(122,154,131,0.16),rgba(122,154,131,0.08))] px-5 lg:px-8">
 			<div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.85fr_1.15fr]">
-				<div pAnimateOnScroll enterClass="reveal-photo-swing" leaveClass="reveal-photo-swing-out" [once]="true" class="relative relative overflow-hidden rounded-[2.5rem] border border-white/40 bg-white/30 p-3 shadow-2xl shadow-forest-green/20">
+				<div pAnimateOnScroll enterClass="reveal-photo-swing" leaveClass="reveal-photo-swing-out" [once]="true" class="relative overflow-hidden rounded-[2.5rem] border border-[#b47a3a]/25 bg-white/30 p-3 shadow-2xl shadow-[#9b6a36]/18">
 					<div class="absolute -right-4 -top-5 h-28 w-28 rounded-full border border-gold-accent/35"></div>
 					<img class="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl shadow-forest-green/10" src="media/me.jpg" alt="Kamila Denis" />
 				</div>
@@ -140,9 +141,9 @@
 			</div>
 		</section>
 
-		<section id="workshops" class="section-space bg-white px-5 lg:px-8">
+		<section id="workshops" class="section-space bg-[linear-gradient(180deg,#ffffff_0%,rgba(250,249,246,0.82)_100%)] px-5 lg:px-8">
 			<div class="mx-auto max-w-5xl">
-				<div pAnimateOnScroll enterClass="reveal-panel" leaveClass="reveal-panel-out" [once]="true" class="rounded-[2rem] border border-gold-accent/40 bg-[linear-gradient(135deg,#faf9f6_0%,#eef5ee_100%)] p-8 shadow-2xl shadow-forest-green/10 sm:p-12">
+				<div pAnimateOnScroll enterClass="reveal-panel" leaveClass="reveal-panel-out" [once]="true" class="rounded-[2rem] border border-[#b47a3a]/35 bg-[radial-gradient(circle_at_88%_18%,rgba(180,122,58,0.18),transparent_28%),linear-gradient(135deg,#faf9f6_0%,#eef5ee_100%)] p-8 shadow-2xl shadow-[#9b6a36]/12 sm:p-12">
 					<div class="mb-8 flex flex-wrap items-center gap-3">
 						<span class="rounded-full bg-forest-green px-4 py-2 text-xs uppercase tracking-[0.22em] text-warm-white">{{ 'workshop.badge' | translate }}</span>
 						<span class="h-px flex-1 bg-gold-accent/40"></span>
@@ -156,7 +157,7 @@
 			</div>
 		</section>
 
-		<section id="contact" class="relative overflow-hidden bg-forest-green px-5 py-24 text-warm-white lg:px-8">
+		<section id="contact" class="relative overflow-hidden bg-[radial-gradient(circle_at_82%_18%,rgba(180,122,58,0.22),transparent_32%),linear-gradient(135deg,#3f5344_0%,#2f3f35_100%)] px-5 py-24 text-warm-white lg:px-8">
 			<img class="pointer-events-none absolute bottom-0 right-0 w-72 opacity-18 sm:w-[28rem]" src="media/bottom-right-corner-plant-bg-dark.jpg" alt="" />
 			<div pAnimateOnScroll enterClass="reveal-footer" leaveClass="reveal-footer-out" [once]="true" class="relative mx-auto max-w-4xl text-center">
 				<img class="mx-auto mb-8 h-24 w-auto rounded-full bg-white/95 object-contain p-3" src="media/logo02.jpg" alt="Kamila Denis logo" />
