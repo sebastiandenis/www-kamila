@@ -1,0 +1,37 @@
+<header class="site-header fixed inset-x-0 top-0 z-50 border-b border-forest-green/10 bg-warm-white/88 backdrop-blur-xl">
+	<nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+		<button class="flex items-center gap-3 text-left" type="button" (click)="navigate.emit('home')">
+			<img class="h-10 w-auto object-contain opacity-80" src="media/logo02.jpg" alt="Kamila Denis logo" />
+			<span class="text-xs uppercase tracking-[0.28em] text-forest-green sm:block">Kamila Denis</span>
+		</button>
+
+		<div class="hidden items-center gap-7 lg:flex">
+			@for (item of navItems(); track item.target) {
+				<button class="nav-link" type="button" (click)="navigate.emit(item.target)">{{ item.labelKey | translate }}</button>
+			}
+		</div>
+
+		<div class="hidden items-center gap-2 lg:flex">
+			<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'pl'" (click)="languageSelected.emit('pl')">PL</button>
+			<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'en'" (click)="languageSelected.emit('en')">EN</button>
+		</div>
+
+		<button class="flex h-11 w-11 items-center justify-center rounded-full border border-forest-green/15 text-forest-green lg:hidden" type="button" (click)="menuToggled.emit()" [attr.aria-label]="'nav.menu' | translate">
+			<ng-icon [name]="isMobileMenuOpen() ? 'tablerX' : 'tablerMenu2'" class="text-2xl"></ng-icon>
+		</button>
+	</nav>
+
+	@if (isMobileMenuOpen()) {
+		<div class="border-t border-forest-green/10 bg-warm-white px-5 py-5 shadow-xl lg:hidden">
+			<div class="flex flex-col gap-4">
+				@for (item of navItems(); track item.target) {
+					<button class="text-left text-sm uppercase tracking-[0.18em] text-forest-green" type="button" (click)="navigate.emit(item.target)">{{ item.labelKey | translate }}</button>
+				}
+				<div class="flex items-center gap-2 border-t border-forest-green/10 pt-4">
+					<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'pl'" (click)="languageSelected.emit('pl')">PL</button>
+					<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'en'" (click)="languageSelected.emit('en')">EN</button>
+				</div>
+			</div>
+		</div>
+	}
+</header>

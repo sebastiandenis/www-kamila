@@ -1,31 +1,20 @@
-import { AfterViewInit, Component, DestroyRef, ElementRef, inject, signal } from '@angular/core';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { Button } from 'primeng/button';
-import { Card } from 'primeng/card';
-import { AnimateOnScroll } from 'primeng/animateonscroll';
-import { NgIconComponent } from '@ng-icons/core';
-
-type Language = 'pl' | 'en';
-
-interface NavItem {
-  labelKey: string;
-  target: string;
-}
-
-interface SenseCard {
-  titleKey: string;
-  bodyKey: string;
-  icon: string;
-  accent: string;
-  glow: string;
-  wash: string;
-}
+import { AfterViewInit, Component, DestroyRef, ElementRef, ViewEncapsulation, inject, signal } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AboutSectionComponent } from './about-section.component';
+import { ContactSectionComponent } from './contact-section.component';
+import { HeroSectionComponent } from './hero-section.component';
+import { Language, NavItem, SenseCard } from './app.models';
+import { PhilosophySectionComponent } from './philosophy-section.component';
+import { SensesSectionComponent } from './senses-section.component';
+import { SiteHeaderComponent } from './site-header.component';
+import { WorkshopsSectionComponent } from './workshops-section.component';
 
 @Component({
-  imports: [AnimateOnScroll, Button, Card, NgIconComponent, TranslatePipe],
+  imports: [AboutSectionComponent, ContactSectionComponent, HeroSectionComponent, PhilosophySectionComponent, SensesSectionComponent, SiteHeaderComponent, WorkshopsSectionComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);

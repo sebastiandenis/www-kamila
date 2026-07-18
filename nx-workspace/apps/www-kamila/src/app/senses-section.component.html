@@ -1,0 +1,26 @@
+<section id="senses" class="section-space bg-[linear-gradient(180deg,#faf9f6_0%,#f1f5ef_100%)] px-5 lg:px-8">
+	<div class="mx-auto max-w-7xl">
+		<div pAnimateOnScroll enterClass="reveal-soft" leaveClass="reveal-soft-out" [once]="true" class="max-w-3xl">
+			<p class="section-kicker">{{ 'senses.kicker' | translate }}</p>
+			<h2 class="section-title">{{ 'senses.title' | translate }}</h2>
+			<p class="mt-6 text-lg leading-8 text-charcoal/78">{{ 'senses.intro' | translate }}</p>
+		</div>
+
+		<div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+			@for (card of cards(); track card.titleKey; let index = $index) {
+				<p-card pAnimateOnScroll enterClass="reveal-card" leaveClass="reveal-card-out" [once]="true" [style.--reveal-delay]="index * 90 + 'ms'" [style.--sense-accent]="card.accent" [style.--sense-glow]="card.glow" [style.--sense-wash]="card.wash" styleClass="sense-card h-full">
+					<div class="sense-card-content">
+						<div class="mb-8 flex items-start">
+							<div class="sense-card-icon">
+								<ng-icon [name]="card.icon" class="text-3xl"></ng-icon>
+							</div>
+						</div>
+						<span class="mb-6 block h-px w-16 bg-[var(--sense-accent)] opacity-45"></span>
+						<h3 class="mb-4 text-2xl font-semibold leading-tight text-forest-green">{{ card.titleKey | translate }}</h3>
+						<p class="m-0 leading-7 text-charcoal/75">{{ card.bodyKey | translate }}</p>
+					</div>
+				</p-card>
+			}
+		</div>
+	</div>
+</section>
