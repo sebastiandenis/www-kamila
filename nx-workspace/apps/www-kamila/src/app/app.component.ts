@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, ElementRef, inject, signal } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Button } from 'primeng/button';
 import { Card } from 'primeng/card';
@@ -24,7 +24,9 @@ interface SenseCard {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly host = inject(ElementRef<HTMLElement>);
   private readonly translate = inject(TranslateService);
 
   readonly currentLanguage = signal<Language>('pl');
@@ -64,6 +66,26 @@ export class AppComponent {
 
   constructor() {
     this.translate.use(this.currentLanguage());
+  }
+
+  ngAfterViewInit(): void {
+    const revealAnimatedElementsAboveViewport = () => this.revealAnimatedElementsAboveViewport();
+
+    requestAnimationFrame(revealAnimatedElementsAboveViewport);
+    window.addEventListener('scroll', revealAnimatedElementsAboveViewport, { once: true, passive: true });
+    this.destroyRef.onDestroy(() => window.removeEventListener('scroll', revealAnimatedElementsAboveViewport));
+  }
+
+  private revealAnimatedElementsAboveViewport(): void {
+    const animatedElements = this.host.nativeElement.querySelectorAll('.p-animateonscroll');
+
+    for (const element of animatedElements) {
+      const animatedElement = element as HTMLElement;
+
+      if (animatedElement.getBoundingClientRect().bottom <= 0) {
+        animatedElement.style.opacity = '';
+      }
+    }
   }
 
   switchLanguage(language: Language): void {
