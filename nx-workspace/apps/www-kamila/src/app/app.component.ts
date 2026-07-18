@@ -16,6 +16,9 @@ interface SenseCard {
   titleKey: string;
   bodyKey: string;
   icon: string;
+  accent: string;
+  glow: string;
+  wash: string;
 }
 
 @Component({
@@ -46,21 +49,33 @@ export class AppComponent implements AfterViewInit {
       titleKey: 'senses.cards.greenery.title',
       bodyKey: 'senses.cards.greenery.body',
       icon: 'tablerPlant',
+      accent: '#7a9a83',
+      glow: 'rgba(122, 154, 131, 0.22)',
+      wash: 'rgba(122, 154, 131, 0.12)',
     },
     {
       titleKey: 'senses.cards.earth.title',
       bodyKey: 'senses.cards.earth.body',
       icon: 'tablerSparkles',
+      accent: '#9b6a36',
+      glow: 'rgba(155, 106, 54, 0.24)',
+      wash: 'rgba(155, 106, 54, 0.13)',
     },
     {
       titleKey: 'senses.cards.scent.title',
       bodyKey: 'senses.cards.scent.body',
       icon: 'tablerDroplet',
+      accent: '#b47a3a',
+      glow: 'rgba(180, 122, 58, 0.24)',
+      wash: 'rgba(180, 122, 58, 0.13)',
     },
     {
       titleKey: 'senses.cards.flow.title',
       bodyKey: 'senses.cards.flow.body',
       icon: 'tablerRipple',
+      accent: '#4f6b59',
+      glow: 'rgba(79, 107, 89, 0.22)',
+      wash: 'rgba(79, 107, 89, 0.12)',
     },
   ];
 

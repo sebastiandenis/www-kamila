@@ -94,12 +94,17 @@
 
 				<div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
 					@for (card of senseCards; track card.titleKey; let index = $index) {
-						<p-card pAnimateOnScroll enterClass="reveal-card" leaveClass="reveal-card-out" [once]="true" [style.--reveal-delay]="index * 90 + 'ms'" styleClass="sense-card h-full">
-							<div class="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-sage-green/12 text-forest-green">
-								<ng-icon [name]="card.icon" class="text-3xl"></ng-icon>
+						<p-card pAnimateOnScroll enterClass="reveal-card" leaveClass="reveal-card-out" [once]="true" [style.--reveal-delay]="index * 90 + 'ms'" [style.--sense-accent]="card.accent" [style.--sense-glow]="card.glow" [style.--sense-wash]="card.wash" styleClass="sense-card h-full">
+							<div class="sense-card-content">
+								<div class="mb-8 flex items-start">
+									<div class="sense-card-icon">
+										<ng-icon [name]="card.icon" class="text-3xl"></ng-icon>
+									</div>
+								</div>
+								<span class="mb-6 block h-px w-16 bg-[var(--sense-accent)] opacity-45"></span>
+								<h3 class="mb-4 text-2xl font-semibold leading-tight text-forest-green">{{ card.titleKey | translate }}</h3>
+								<p class="m-0 leading-7 text-charcoal/75">{{ card.bodyKey | translate }}</p>
 							</div>
-							<h3 class="mb-4 text-2xl font-semibold text-forest-green">{{ card.titleKey | translate }}</h3>
-							<p class="m-0 leading-7 text-charcoal/75">{{ card.bodyKey | translate }}</p>
 						</p-card>
 					}
 				</div>
