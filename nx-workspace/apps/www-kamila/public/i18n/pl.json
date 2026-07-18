@@ -51,7 +51,11 @@
 		"title": "Architekt, który zaczął projektować sercem.",
 		"paragraph1": "Przez 24 lata tworzyłam w świecie klasycznej architektury wnętrz piękne i funkcjonalne przestrzenie. Zrozumiałam jednak, że projektowanie samej materii to za mało. Moi klienci często podświadomie czuli ciężar we własnych domach. Nie czuli się jak u siebie.",
 		"paragraph2": "Aby wnosić do wnętrz ukojenie, połączyłam precyzję architekta z wrażliwością na energię człowieka, w tym Totalną Biologią, Metodą Silvy i Szkołą Esencji Boskiej Kobiecości.",
-		"manifest": "Zaprojektuj swoją radość. Najwyższym luksusem jest dowiedzieć się, co naprawdę sprawia nam radość. Dom to inwestycja w to, jak głęboko potrafisz oddychać, kiedy zamykasz za sobą drzwi."
+		"manifest": "Zaprojektuj swoją radość. Najwyższym luksusem jest dowiedzieć się, co naprawdę sprawia nam radość. Dom to inwestycja w to, jak głęboko potrafisz oddychać, kiedy zamykasz za sobą drzwi.",
+		"manifestLabel": "Manifest domu",
+		"manifestLead": "Zaprojektuj swoją radość.",
+		"manifestBody": "Najwyższym luksusem jest dowiedzieć się, co naprawdę sprawia nam radość.",
+		"manifestClose": "Dom to inwestycja w to, jak głęboko potrafisz oddychać, kiedy zamykasz za sobą drzwi."
 	},
 	"workshop": {
 		"badge": "Autorski warsztat",
