@@ -1,5 +1,5 @@
 {
   "hosting": {
-    "public": "public"
+    "public": "nx-workspace/dist/apps/www-kamila/browser"
   }
 }

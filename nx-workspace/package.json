@@ -1,8 +1,14 @@
 {
-  "name": "@nx-workspace/source",
-  "version": "0.0.0",
+  "name": "@kamila-denis/www",
+  "version": "1.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start1": "npx nx serve www-kamila",
+    "build:prod": "npx nx build www-kamila --configuration=production",
+    "firebase:deploy": "firebase deploy",
+    "format:check": "npx nx format:check --all",
+    "format:write": "npx nx format:write --all"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^21.2.9",
