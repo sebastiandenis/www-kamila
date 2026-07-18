@@ -1,67 +1,167 @@
-<div class="min-h-screen bg-[radial-gradient(1100px_circle_at_15%_15%,var(--p-primary-100),transparent_45%),radial-gradient(900px_circle_at_90%_10%,var(--p-primary-50),transparent_50%)]">
-	<main class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-10 md:px-10 md:py-16">
-		<p-card styleClass="border border-surface-200/70 shadow-xl">
-			<ng-template #header>
-				<div class="flex items-center justify-between border-b border-surface-200 px-6 py-5">
-					<div class="flex items-center gap-3">
-						<ng-icon name="tablerPalette" class="text-2xl text-primary"></ng-icon>
-						<div>
-							<p class="m-0 text-sm uppercase tracking-[0.2em] text-surface-500">PrimeNG + Tailwind v4</p>
-							<h1 class="m-0 text-2xl font-semibold text-surface-900">{{ title() }}</h1>
-						</div>
-					</div>
+<div class="min-h-screen overflow-x-hidden bg-warm-white text-charcoal">
+	<header class="fixed inset-x-0 top-0 z-50 border-b border-forest-green/10 bg-warm-white/88 backdrop-blur-xl">
+		<nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+			<button class="flex items-center gap-3 text-left" type="button" (click)="scrollTo('home')">
+				<img class="h-10 w-auto object-contain" src="media/logo02.jpg" alt="Kamila Denis logo" />
+				<span class="hidden text-xs uppercase tracking-[0.28em] text-forest-green sm:block">Kamila Denis</span>
+			</button>
 
-					<div class="hidden items-center gap-2 sm:flex">
-						<ng-icon name="tablerBrandFacebook" class="text-xl text-surface-500"></ng-icon>
-						<ng-icon name="tablerBrandInstagram" class="text-xl text-surface-500"></ng-icon>
-					</div>
-				</div>
-			</ng-template>
-
-			<p class="m-0 leading-relaxed text-surface-700">
-				UI stack is configured for this app: PrimeNG with Aura theme, Tailwind CSS v4 utilities,
-				and Tabler icons via ng-icons providers.
-			</p>
-
-			<div class="mt-6 grid gap-4 sm:grid-cols-3">
-				<div class="rounded-xl border border-surface-200 bg-surface-0 p-4">
-					<div class="mb-2 flex items-center gap-2 text-surface-600">
-						<ng-icon name="tablerPhoto" class="text-lg"></ng-icon>
-						<span class="text-sm font-medium">Portfolio</span>
-					</div>
-					<p class="m-0 text-sm text-surface-500">Ready for gallery and case study cards.</p>
-				</div>
-
-				<div class="rounded-xl border border-surface-200 bg-surface-0 p-4">
-					<div class="mb-2 flex items-center gap-2 text-surface-600">
-						<ng-icon name="tablerMail" class="text-lg"></ng-icon>
-						<span class="text-sm font-medium">Contact</span>
-					</div>
-					<p class="m-0 text-sm text-surface-500">Prepared for form and quick contact actions.</p>
-				</div>
-
-				<div class="rounded-xl border border-surface-200 bg-surface-0 p-4">
-					<div class="mb-2 flex items-center gap-2 text-surface-600">
-						<ng-icon name="tablerMapPin" class="text-lg"></ng-icon>
-						<span class="text-sm font-medium">Location</span>
-					</div>
-					<p class="m-0 text-sm text-surface-500">Great base for region and service area details.</p>
-				</div>
+			<div class="hidden items-center gap-7 lg:flex">
+				@for (item of navItems; track item.target) {
+					<button class="nav-link" type="button" (click)="scrollTo(item.target)">{{ item.labelKey | translate }}</button>
+				}
 			</div>
 
-			<ng-template #footer>
-				<div class="mt-8 flex flex-wrap items-center gap-3">
-					<p-button label="Explore" icon="pi pi-compass" [raised]="true"></p-button>
-					<p-button label="Call" icon="pi pi-phone" [outlined]="true" severity="secondary"></p-button>
-					<span class="ml-auto hidden items-center gap-2 text-sm text-surface-500 sm:inline-flex">
-						<ng-icon name="tablerHome" class="text-base"></ng-icon>
-						<ng-icon name="tablerPhone" class="text-base"></ng-icon>
-						<ng-icon name="tablerArrowRight" class="text-base"></ng-icon>
-					</span>
-				</div>
-			</ng-template>
-		</p-card>
+			<div class="hidden items-center gap-2 lg:flex">
+				<ng-icon name="tablerLanguage" class="text-lg text-sage-green"></ng-icon>
+				<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'pl'" (click)="switchLanguage('pl')">PL</button>
+				<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'en'" (click)="switchLanguage('en')">EN</button>
+			</div>
 
-		<router-outlet></router-outlet>
+			<button class="flex h-11 w-11 items-center justify-center rounded-full border border-forest-green/15 text-forest-green lg:hidden" type="button" (click)="toggleMobileMenu()" [attr.aria-label]="'nav.menu' | translate">
+				<ng-icon [name]="isMobileMenuOpen() ? 'tablerX' : 'tablerMenu2'" class="text-2xl"></ng-icon>
+			</button>
+		</nav>
+
+		@if (isMobileMenuOpen()) {
+			<div class="border-t border-forest-green/10 bg-warm-white px-5 py-5 shadow-xl lg:hidden">
+				<div class="flex flex-col gap-4">
+					@for (item of navItems; track item.target) {
+						<button class="text-left text-sm uppercase tracking-[0.18em] text-forest-green" type="button" (click)="scrollTo(item.target)">{{ item.labelKey | translate }}</button>
+					}
+					<div class="flex items-center gap-2 border-t border-forest-green/10 pt-4">
+						<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'pl'" (click)="switchLanguage('pl')">PL</button>
+						<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'en'" (click)="switchLanguage('en')">EN</button>
+					</div>
+				</div>
+			</div>
+		}
+	</header>
+
+	<main>
+		<section id="home" class="relative flex min-h-screen items-center overflow-hidden px-5 pt-28 lg:px-8">
+			<img class="pointer-events-none absolute left-0 top-16 w-52 opacity-75 sm:w-72 lg:w-96" src="media/top-left-corner.jpg" alt="" />
+			<img class="pointer-events-none absolute bottom-0 right-0 w-56 opacity-70 sm:w-80 lg:w-[28rem]" src="media/bottom-right-corner.jpg" alt="" />
+
+			<div class="relative mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+				<div pAnimateOnScroll enterClass="reveal-rise" leaveClass="reveal-rise-out" [once]="true" class="max-w-3xl">
+					<p class="mb-5 inline-flex rounded-full border border-sage-green/25 bg-white/70 px-4 py-2 text-xs uppercase tracking-[0.28em] text-forest-green">{{ 'hero.eyebrow' | translate }}</p>
+					<h1 class="mb-6 text-balance text-5xl font-semibold leading-[1.02] text-forest-green sm:text-6xl lg:text-7xl">{{ 'hero.title' | translate }}</h1>
+					<p class="max-w-2xl text-xl leading-8 text-charcoal/80">{{ 'hero.subtitle' | translate }}</p>
+					<div class="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+						<p-button [label]="'hero.cta' | translate" icon="pi pi-arrow-down" styleClass="cta-button" (onClick)="scrollTo('philosophy')"></p-button>
+						<button class="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-forest-green" type="button" (click)="scrollTo('contact')">
+							{{ 'hero.secondaryCta' | translate }}
+							<ng-icon name="tablerArrowRight" class="text-lg"></ng-icon>
+						</button>
+					</div>
+				</div>
+
+				<div pAnimateOnScroll enterClass="reveal-zoom scroll-delay-1" leaveClass="reveal-zoom-out" [once]="true" class="relative mx-auto w-full max-w-xl">
+					<div class="absolute -left-6 top-10 h-40 w-40 rounded-full bg-sage-green/20 blur-3xl"></div>
+					<div class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/55 p-3 shadow-2xl shadow-forest-green/10">
+						<img class="aspect-[4/5] w-full rounded-[1.5rem] object-cover" src="media/my-space.jpg" alt="Plant-filled interior with natural light" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="philosophy" class="section-space bg-white px-5 lg:px-8">
+			<div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
+				<div pAnimateOnScroll enterClass="reveal-drift-left" leaveClass="reveal-drift-left-out" [once]="true" class="order-2 lg:order-1">
+					<p class="section-kicker">{{ 'philosophy.kicker' | translate }}</p>
+					<h2 class="section-title">{{ 'philosophy.title' | translate }}</h2>
+					<p class="mt-7 text-lg font-semibold leading-8 text-forest-green">{{ 'philosophy.lead' | translate }}</p>
+					<p class="mt-6 leading-8 text-charcoal/78">{{ 'philosophy.paragraph1' | translate }}</p>
+					<p class="mt-5 leading-8 text-charcoal/78">{{ 'philosophy.paragraph2' | translate }}</p>
+					<blockquote class="mt-9 border-l-4 border-gold-accent pl-6 text-2xl leading-10 text-forest-green">{{ 'philosophy.quote' | translate }}</blockquote>
+				</div>
+
+				<div pAnimateOnScroll enterClass="reveal-drift-right scroll-delay-1" leaveClass="reveal-drift-right-out" [once]="true" class="order-1 lg:order-2">
+					<div class="overflow-hidden rounded-[1.75rem] bg-sage-green/10 p-3">
+						<img class="aspect-[5/4] w-full rounded-[1.25rem] object-cover" src="media/my-space.jpg" alt="Interior detail with greenery" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="senses" class="section-space bg-[linear-gradient(180deg,#faf9f6_0%,#f1f5ef_100%)] px-5 lg:px-8">
+			<div class="mx-auto max-w-7xl">
+				<div pAnimateOnScroll enterClass="reveal-soft" leaveClass="reveal-soft-out" [once]="true" class="max-w-3xl">
+					<p class="section-kicker">{{ 'senses.kicker' | translate }}</p>
+					<h2 class="section-title">{{ 'senses.title' | translate }}</h2>
+					<p class="mt-6 text-lg leading-8 text-charcoal/78">{{ 'senses.intro' | translate }}</p>
+				</div>
+
+				<div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+					@for (card of senseCards; track card.titleKey; let index = $index) {
+						<p-card pAnimateOnScroll enterClass="reveal-card" leaveClass="reveal-card-out" [once]="true" [style.--reveal-delay]="index * 90 + 'ms'" styleClass="sense-card h-full">
+							<div class="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-sage-green/12 text-forest-green">
+								<ng-icon [name]="card.icon" class="text-3xl"></ng-icon>
+							</div>
+							<p class="mb-4 text-xs uppercase tracking-[0.22em] text-gold-accent">0{{ index + 1 }}</p>
+							<h3 class="mb-4 text-2xl font-semibold text-forest-green">{{ card.titleKey | translate }}</h3>
+							<p class="m-0 leading-7 text-charcoal/75">{{ card.bodyKey | translate }}</p>
+						</p-card>
+					}
+				</div>
+			</div>
+		</section>
+
+		<section id="about" class="section-space bg-sage-green/16 px-5 lg:px-8">
+			<div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.85fr_1.15fr]">
+				<div pAnimateOnScroll enterClass="reveal-photo-swing" leaveClass="reveal-photo-swing-out" [once]="true" class="relative">
+					<div class="absolute -right-4 -top-5 h-28 w-28 rounded-full border border-gold-accent/35"></div>
+					<img class="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl shadow-forest-green/10" src="media/me.jpg" alt="Kamila Denis" />
+				</div>
+
+				<div pAnimateOnScroll enterClass="reveal-drift-right scroll-delay-1" leaveClass="reveal-drift-right-out" [once]="true">
+					<p class="section-kicker">{{ 'about.kicker' | translate }}</p>
+					<h2 class="section-title">{{ 'about.title' | translate }}</h2>
+					<p class="mt-7 leading-8 text-charcoal/78">{{ 'about.paragraph1' | translate }}</p>
+					<p class="mt-5 leading-8 text-charcoal/78">{{ 'about.paragraph2' | translate }}</p>
+					<div class="mt-10 rounded-[1.5rem] border border-white/70 bg-warm-white/75 p-8">
+						<ng-icon name="tablerSunHigh" class="mb-5 block text-4xl text-gold-accent"></ng-icon>
+						<blockquote class="m-0 text-3xl leading-[1.25] text-forest-green sm:text-4xl">{{ 'about.manifest' | translate }}</blockquote>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="workshops" class="section-space bg-white px-5 lg:px-8">
+			<div class="mx-auto max-w-5xl">
+				<div pAnimateOnScroll enterClass="reveal-panel" leaveClass="reveal-panel-out" [once]="true" class="rounded-[2rem] border border-gold-accent/40 bg-[linear-gradient(135deg,#faf9f6_0%,#eef5ee_100%)] p-8 shadow-2xl shadow-forest-green/10 sm:p-12">
+					<div class="mb-8 flex flex-wrap items-center gap-3">
+						<span class="rounded-full bg-forest-green px-4 py-2 text-xs uppercase tracking-[0.22em] text-warm-white">{{ 'workshop.badge' | translate }}</span>
+						<span class="h-px flex-1 bg-gold-accent/40"></span>
+					</div>
+					<h2 class="max-w-4xl text-4xl font-semibold leading-tight text-forest-green sm:text-5xl">{{ 'workshop.title' | translate }}</h2>
+					<p class="mt-7 max-w-3xl text-lg leading-8 text-charcoal/78">{{ 'workshop.body' | translate }}</p>
+					<div class="mt-9">
+						<p-button [label]="'workshop.cta' | translate" icon="pi pi-calendar-plus" styleClass="cta-button" (onClick)="scrollTo('contact')"></p-button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="relative overflow-hidden bg-forest-green px-5 py-24 text-warm-white lg:px-8">
+			<img class="pointer-events-none absolute bottom-0 right-0 w-72 opacity-18 sm:w-[28rem]" src="media/bottom-right-corner.jpg" alt="" />
+			<div pAnimateOnScroll enterClass="reveal-footer" leaveClass="reveal-footer-out" [once]="true" class="relative mx-auto max-w-4xl text-center">
+				<img class="mx-auto mb-8 h-24 w-auto rounded-full bg-white/95 object-contain p-3" src="media/logo02.jpg" alt="Kamila Denis logo" />
+				<p class="mb-5 text-xs uppercase tracking-[0.28em] text-gold-accent">{{ 'contact.kicker' | translate }}</p>
+				<h2 class="text-4xl font-semibold leading-tight sm:text-6xl">{{ 'contact.title' | translate }}</h2>
+				<p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-warm-white/78">{{ 'contact.body' | translate }}</p>
+				<div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+					<a class="contact-button" href="mailto:kamila.denis@outlook.com">
+						<ng-icon name="tablerMail" class="text-xl"></ng-icon>
+						{{ 'contact.cta' | translate }}
+					</a>
+					<a class="contact-button contact-button-secondary" href="tel:+48664726723">
+						<ng-icon name="tablerPhone" class="text-xl"></ng-icon>
+						+48 664 726 723
+					</a>
+				</div>
+			</div>
+		</section>
 	</main>
 </div>

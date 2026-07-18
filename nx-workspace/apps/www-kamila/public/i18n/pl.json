@@ -1,0 +1,68 @@
+{
+	"nav": {
+		"home": "Start",
+		"philosophy": "Filozofia",
+		"senses": "Zmysły we wnętrzu",
+		"about": "O mnie",
+		"workshops": "Warsztaty",
+		"contact": "Kontakt",
+		"menu": "Otwórz menu"
+	},
+	"hero": {
+		"eyebrow": "Architektura dobrostanu",
+		"title": "Kamila Denis Architekt Wnętrz | Architekt Dobrostanu",
+		"subtitle": "Twój dom to Twoja druga ziemska powłoka. Zaprojektujmy przestrzeń dla Twojego ciała i ducha.",
+		"cta": "Odkryj swój dobrostan",
+		"secondaryCta": "Porozmawiajmy"
+	},
+	"philosophy": {
+		"kicker": "Filozofia",
+		"title": "Przestrzeń, która oddycha razem z Tobą.",
+		"lead": "Czy zdarzyło Ci się wejść do wnętrza idealnego jak z katalogu, w którym po ułamku sekundy czujesz... chłód?",
+		"paragraph1": "Przestrzeń, która miała być oazą, staje się kolejnym salonem meblowym - obcym, przebodźcowanym miejscem, które zamiast karmić, odbiera energię.",
+		"paragraph2": "Wierzę, że Twoje ciało to Twój pierwszy dom na tej Ziemi. Miejsce, w którym mieszkasz, powinno być jego naturalnym przedłużeniem - bezpieczną powłoką, która zdejmuje z Ciebie ciężar dnia, zanim zdążysz o tym pomyśleć.",
+		"quote": "Nie projektuję samych ścian. Projektuję przepływ, lekkość i dobrostan."
+	},
+	"senses": {
+		"kicker": "Zmysły i natura",
+		"title": "Życie w surowej materii. Czego potrzebuje Twój dom?",
+		"intro": "Nie szukasz kogoś, kto wybierze modne kafelki. Czujesz, że przestrzeń wpływa na Twoje zdrowie, relacje i jasność umysłu. Wprowadzam do surowych wnętrz autentyczny kontakt z naturą.",
+		"cards": {
+			"greenery": {
+				"title": "Świątynia Zieleni",
+				"body": "Rośliny to nie dekoracje. To żywi partnerzy Twojego dobrostanu. Oczyszczają powietrze, harmonizują biopole i przywracają pierwotny rytm natury w miejskim świecie."
+			},
+			"earth": {
+				"title": "Struktura Ziemi",
+				"body": "Kamień to pierwotny fundament i najstarsza pamięć Ziemi. Naturalne minerały i kryształy działają we wnętrzu jak odpromienniki i kotwice spokoju."
+			},
+			"scent": {
+				"title": "Architektura Zapachu",
+				"body": "Niewidzialny design omijający logiczny umysł. Czyste olejki eteryczne decydują o tym, czy po przekroczeniu progu Twoje ciało puszcza stres."
+			},
+			"flow": {
+				"title": "Świadomy Przepływ",
+				"body": "Układam strukturę domu i przepływ energii tak, aby wnętrze stało się Twoją osobistą ładowarką i wspierało to, kim marzysz być."
+			}
+		}
+	},
+	"about": {
+		"kicker": "O mnie",
+		"title": "Architekt, który zaczął projektować sercem.",
+		"paragraph1": "Przez 24 lata tworzyłam w świecie klasycznej architektury wnętrz piękne i funkcjonalne przestrzenie. Zrozumiałam jednak, że projektowanie samej materii to za mało. Moi klienci często podświadomie czuli ciężar we własnych domach. Nie czuli się jak u siebie.",
+		"paragraph2": "Aby wnosić do wnętrz ukojenie, połączyłam precyzję architekta z wrażliwością na energię człowieka, w tym Totalną Biologią, Metodą Silvy i Szkołą Esencji Boskiej Kobiecości.",
+		"manifest": "Zaprojektuj swoją radość. Najwyższym luksusem jest dowiedzieć się, co naprawdę sprawia nam radość. Dom to inwestycja w to, jak głęboko potrafisz oddychać, kiedy zamykasz za sobą drzwi."
+	},
+	"workshop": {
+		"badge": "Autorski warsztat",
+		"title": "Nie czujesz się jak u siebie w domu, pomimo że w nim żyjesz?",
+		"body": "To spotkanie dla tych, którzy utknęli w salonie meblowym własnego życia. Zejdziemy głębiej, aby odpowiedzieć na pytania: co sprawia Ci radość, jakie wnętrze karmi Twoją duszę i jak naprawdę chcesz żyć.",
+		"cta": "Zapisz się na warsztaty"
+	},
+	"contact": {
+		"kicker": "Kontakt",
+		"title": "Zróbmy ten krok razem",
+		"body": "Jeśli czujesz, że nadszedł czas na przestrzeń, która naprawdę współgra z Twoją biologią i duszą - zapraszam Cię do mojego świata.",
+		"cta": "Porozmawiajmy o Twoim nowym domu"
+	}
+}
