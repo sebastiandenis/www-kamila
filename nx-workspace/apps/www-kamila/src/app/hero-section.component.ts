@@ -5,10 +5,10 @@ import { AnimateOnScroll } from 'primeng/animateonscroll';
 import { Button } from 'primeng/button';
 
 @Component({
-	imports: [AnimateOnScroll, Button, NgIconComponent, TranslatePipe],
-	selector: 'app-hero-section',
-	templateUrl: './hero-section.component.html',
+  imports: [AnimateOnScroll, Button, NgIconComponent, TranslatePipe],
+  selector: 'app-hero-section',
+  templateUrl: './hero-section.component.html',
 })
 export class HeroSectionComponent {
-	readonly navigate = output<string>();
+  readonly navigate = output<string>();
 }

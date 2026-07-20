@@ -6,10 +6,10 @@ import { Card } from 'primeng/card';
 import { SenseCard } from './app.models';
 
 @Component({
-	imports: [AnimateOnScroll, Card, NgIconComponent, TranslatePipe],
-	selector: 'app-senses-section',
-	templateUrl: './senses-section.component.html',
+  imports: [AnimateOnScroll, Card, NgIconComponent, TranslatePipe],
+  selector: 'app-senses-section',
+  templateUrl: './senses-section.component.html',
 })
 export class SensesSectionComponent {
-	readonly cards = input.required<SenseCard[]>();
+  readonly cards = input.required<SenseCard[]>();
 }

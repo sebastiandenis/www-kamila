@@ -1,13 +1,25 @@
 <div class="min-h-screen overflow-x-hidden bg-warm-white text-charcoal">
-	<app-site-header [desktopNavItems]="desktopNavItems" [mobileNavItems]="mobileNavItems" [currentLanguage]="currentLanguage()" [isMobileMenuOpen]="isMobileMenuOpen()" [soundtrackPlaying]="isSoundtrackPlaying()" (navigate)="scrollTo($event)" (languageSelected)="switchLanguage($event)" (menuToggled)="toggleMobileMenu()" (soundtrackToggled)="toggleSoundtrack()"></app-site-header>
+  <app-site-header
+    [desktopNavItems]="desktopNavItems"
+    [mobileNavItems]="mobileNavItems"
+    [currentLanguage]="currentLanguage()"
+    [isMobileMenuOpen]="isMobileMenuOpen()"
+    [soundtrackPlaying]="isSoundtrackPlaying()"
+    (navigate)="scrollTo($event)"
+    (languageSelected)="switchLanguage($event)"
+    (menuToggled)="toggleMobileMenu()"
+    (soundtrackToggled)="toggleSoundtrack()"
+  ></app-site-header>
 
-	<main>
-		<app-hero-section (navigate)="scrollTo($event)"></app-hero-section>
-		<app-philosophy-section></app-philosophy-section>
-		<app-senses-section [cards]="senseCards"></app-senses-section>
-		<app-gallery-section (navigate)="scrollTo($event)"></app-gallery-section>
-		<app-about-section></app-about-section>
-		<app-workshops-section (navigate)="scrollTo($event)"></app-workshops-section>
-		<app-contact-section></app-contact-section>
-	</main>
+  <main>
+    <app-hero-section (navigate)="scrollTo($event)"></app-hero-section>
+    <app-philosophy-section></app-philosophy-section>
+    <app-senses-section [cards]="senseCards"></app-senses-section>
+    <app-gallery-section (navigate)="scrollTo($event)"></app-gallery-section>
+    <app-about-section></app-about-section>
+    <app-workshops-section
+      (navigate)="scrollTo($event)"
+    ></app-workshops-section>
+    <app-contact-section></app-contact-section>
+  </main>
 </div>

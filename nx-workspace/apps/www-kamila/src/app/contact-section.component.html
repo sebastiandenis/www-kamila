@@ -1,24 +1,59 @@
-<section id="contact" class="relative overflow-hidden bg-[radial-gradient(circle_at_82%_18%,rgba(180,122,58,0.22),transparent_32%),linear-gradient(135deg,#3f5344_0%,#2f3f35_100%)] px-5 py-24 text-warm-white lg:px-8">
-	<img class="pointer-events-none absolute bottom-0 right-0 w-72 opacity-38 sm:w-[28rem]" src="media/bottom-right-corner-plant-bg-transp.png" alt="" />
-	<div pAnimateOnScroll enterClass="reveal-footer" leaveClass="reveal-footer-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true" class="relative mx-auto max-w-4xl text-center">
-		<img class="mx-auto mb-8 h-24 w-auto rounded-full bg-white/95 object-contain p-3" src="media/logo02.jpg" alt="KD - logo" />
-		<p class="mb-5 text-xs uppercase tracking-[0.28em] text-gold-accent">{{ 'contact.kicker' | translate }}</p>
-		<h2 class="text-4xl font-semibold leading-tight sm:text-6xl">{{ 'contact.title' | translate }}</h2>
-		<p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-warm-white/78">{{ 'contact.body' | translate }}</p>
-		<div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-			<a class="contact-button" href="mailto:kamila.denis@outlook.com">
-				<ng-icon name="tablerMail" class="text-xl"></ng-icon>
-				{{ 'contact.cta' | translate }}
-			</a>
-			<a class="contact-button contact-button-secondary" href="tel:+48664726723">
-				<ng-icon name="tablerPhone" class="text-xl"></ng-icon>
-				+48 664 726 723
-			</a>
-		</div>
-		<div class="mt-8 flex justify-center">
-			<a class="flex h-12 w-12 items-center justify-center rounded-full border border-warm-white/35 text-warm-white transition hover:-translate-y-1 hover:border-gold-accent hover:bg-warm-white/10 hover:text-gold-accent" href="https://www.facebook.com/kamiladenisarchitektwnetrz" target="_blank" rel="noopener noreferrer" aria-label="Facebook - Kamila Denis Architekt Wnętrz" title="Facebook">
-				<ng-icon name="tablerBrandFacebook" class="text-2xl"></ng-icon>
-			</a>
-		</div>
-	</div>
+<section
+  id="contact"
+  class="relative overflow-hidden bg-[radial-gradient(circle_at_82%_18%,rgba(180,122,58,0.22),transparent_32%),linear-gradient(135deg,#3f5344_0%,#2f3f35_100%)] px-5 py-24 text-warm-white lg:px-8"
+>
+  <img
+    class="pointer-events-none absolute bottom-0 right-0 w-72 opacity-38 sm:w-[28rem]"
+    src="media/bottom-right-corner-plant-bg-transp.png"
+    alt=""
+  />
+  <div
+    pAnimateOnScroll
+    enterClass="reveal-footer"
+    leaveClass="reveal-footer-out"
+    threshold="0.4"
+    rootMargin="0px 0px 140px 0px"
+    [once]="true"
+    class="relative mx-auto max-w-4xl text-center"
+  >
+    <img
+      class="mx-auto mb-8 h-24 w-auto rounded-full bg-white/95 object-contain p-3"
+      src="media/logo02.jpg"
+      alt="KD - logo"
+    />
+    <p class="mb-5 text-xs uppercase tracking-[0.28em] text-gold-accent">
+      {{ 'contact.kicker' | translate }}
+    </p>
+    <h2 class="text-4xl font-semibold leading-tight sm:text-6xl">
+      {{ 'contact.title' | translate }}
+    </h2>
+    <p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-warm-white/78">
+      {{ 'contact.body' | translate }}
+    </p>
+    <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+      <a class="contact-button" href="mailto:kamila.denis@outlook.com">
+        <ng-icon name="tablerMail" class="text-xl"></ng-icon>
+        {{ 'contact.cta' | translate }}
+      </a>
+      <a
+        class="contact-button contact-button-secondary"
+        href="tel:+48664726723"
+      >
+        <ng-icon name="tablerPhone" class="text-xl"></ng-icon>
+        +48 664 726 723
+      </a>
+    </div>
+    <div class="mt-8 flex justify-center">
+      <a
+        class="flex h-12 w-12 items-center justify-center rounded-full border border-warm-white/35 text-warm-white transition hover:-translate-y-1 hover:border-gold-accent hover:bg-warm-white/10 hover:text-gold-accent"
+        href="https://www.facebook.com/kamiladenisarchitektwnetrz"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook - Kamila Denis Architekt Wnętrz"
+        title="Facebook"
+      >
+        <ng-icon name="tablerBrandFacebook" class="text-2xl"></ng-icon>
+      </a>
+    </div>
+  </div>
 </section>

@@ -1,5 +1,14 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, OnDestroy, OnInit, computed, inject, output, signal } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  computed,
+  inject,
+  output,
+  signal,
+} from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AnimateOnScroll } from 'primeng/animateonscroll';
 import { Button } from 'primeng/button';
@@ -37,7 +46,10 @@ export function selectRandomGallerySlides(
   // Fisher-Yates guarantees a uniform random permutation before taking the first N items.
   for (let index = shuffledSlides.length - 1; index > 0; index -= 1) {
     const randomIndex = Math.floor(randomValue() * (index + 1));
-    [shuffledSlides[index], shuffledSlides[randomIndex]] = [shuffledSlides[randomIndex], shuffledSlides[index]];
+    [shuffledSlides[index], shuffledSlides[randomIndex]] = [
+      shuffledSlides[randomIndex],
+      shuffledSlides[index],
+    ];
   }
 
   return shuffledSlides.slice(0, Math.min(count, shuffledSlides.length));
@@ -101,7 +113,9 @@ export class GallerySectionComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const allSlides = buildGallerySlides(TOTAL_GALLERY_IMAGES);
-    this.galleryImages.set(selectRandomGallerySlides(allSlides, SELECTED_GALLERY_IMAGES));
+    this.galleryImages.set(
+      selectRandomGallerySlides(allSlides, SELECTED_GALLERY_IMAGES),
+    );
     this.startAutoplay();
   }
 
@@ -215,7 +229,11 @@ export class GallerySectionComponent implements OnInit, OnDestroy {
   }
 
   private startAutoplay(): void {
-    if (this.autoplayTimer || this.galleryImages().length <= 1 || this.isLightboxOpen()) {
+    if (
+      this.autoplayTimer ||
+      this.galleryImages().length <= 1 ||
+      this.isLightboxOpen()
+    ) {
       return;
     }
 

@@ -24,11 +24,18 @@
   overflow: hidden;
   padding: 0.75rem;
   position: relative;
-  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 320ms ease;
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 320ms ease;
 }
 
 .queue-card::after {
-  background: linear-gradient(115deg, transparent 24%, rgba(255, 255, 255, 0.25) 45%, transparent 68%);
+  background: linear-gradient(
+    115deg,
+    transparent 24%,
+    rgba(255, 255, 255, 0.25) 45%,
+    transparent 68%
+  );
   content: '';
   inset: 0;
   pointer-events: none;
@@ -69,7 +76,9 @@
 
 .queue-card-active {
   border-color: rgba(180, 122, 58, 0.3);
-  box-shadow: 0 34px 76px rgba(63, 83, 68, 0.18), 0 12px 30px rgba(155, 106, 54, 0.14);
+  box-shadow:
+    0 34px 76px rgba(63, 83, 68, 0.18),
+    0 12px 30px rgba(155, 106, 54, 0.14);
   transform-origin: center;
   z-index: 2;
 }
@@ -91,7 +100,10 @@
   font-size: 1rem;
   height: 2.6rem;
   justify-content: center;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
   width: 2.6rem;
 }
 
@@ -177,7 +189,9 @@
   background: rgba(255, 255, 255, 0.28);
   border: 1px solid rgba(180, 122, 58, 0.34);
   border-radius: 2.5rem;
-  box-shadow: 0 34px 84px rgba(0, 0, 0, 0.34), 0 16px 44px rgba(155, 106, 54, 0.18);
+  box-shadow:
+    0 34px 84px rgba(0, 0, 0, 0.34),
+    0 16px 44px rgba(155, 106, 54, 0.18);
   margin: 0;
   max-height: calc(100vh - 3rem);
   overflow: hidden;
@@ -206,7 +220,10 @@
   font-size: 1rem;
   height: 2.75rem;
   justify-content: center;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
   width: 2.75rem;
 }
 
@@ -284,9 +301,19 @@
   }
 
   .queue-nav {
-    background: linear-gradient(145deg, rgba(250, 249, 246, 0.95), rgba(255, 255, 255, 0.82));
-    border-color: color-mix(in srgb, var(--color-gold-accent) 34%, rgba(255, 255, 255, 0.86));
-    box-shadow: 0 14px 30px rgba(63, 83, 68, 0.16), 0 0 26px rgba(122, 154, 131, 0.22);
+    background: linear-gradient(
+      145deg,
+      rgba(250, 249, 246, 0.95),
+      rgba(255, 255, 255, 0.82)
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--color-gold-accent) 34%,
+      rgba(255, 255, 255, 0.86)
+    );
+    box-shadow:
+      0 14px 30px rgba(63, 83, 68, 0.16),
+      0 0 26px rgba(122, 154, 131, 0.22);
     height: 3.25rem;
     position: absolute;
     top: auto;
@@ -309,7 +336,9 @@
   }
 
   .queue-nav:hover {
-    box-shadow: 0 18px 34px rgba(63, 83, 68, 0.2), 0 0 30px rgba(180, 122, 58, 0.26);
+    box-shadow:
+      0 18px 34px rgba(63, 83, 68, 0.2),
+      0 0 30px rgba(180, 122, 58, 0.26);
     transform: translateY(-2px) scale(1.03);
   }
 }

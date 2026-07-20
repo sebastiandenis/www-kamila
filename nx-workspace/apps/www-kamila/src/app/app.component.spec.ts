@@ -50,7 +50,10 @@ describe('AppComponent', () => {
     originalNavigatorLanguages = navigator.languages;
     originalNavigatorLanguage = navigator.language;
     originalAudio = window.Audio;
-    originalVisibilityStateDescriptor = Object.getOwnPropertyDescriptor(document, 'visibilityState');
+    originalVisibilityStateDescriptor = Object.getOwnPropertyDescriptor(
+      document,
+      'visibilityState',
+    );
 
     visibilityState = 'visible';
     Object.defineProperty(document, 'visibilityState', {
@@ -92,19 +95,35 @@ describe('AppComponent', () => {
   });
 
   afterEach(() => {
-    Object.defineProperty(navigator, 'languages', { configurable: true, value: originalNavigatorLanguages });
-    Object.defineProperty(navigator, 'language', { configurable: true, value: originalNavigatorLanguage });
-    Object.defineProperty(window, 'Audio', { configurable: true, value: originalAudio });
+    Object.defineProperty(navigator, 'languages', {
+      configurable: true,
+      value: originalNavigatorLanguages,
+    });
+    Object.defineProperty(navigator, 'language', {
+      configurable: true,
+      value: originalNavigatorLanguage,
+    });
+    Object.defineProperty(window, 'Audio', {
+      configurable: true,
+      value: originalAudio,
+    });
 
     if (originalVisibilityStateDescriptor) {
-      Object.defineProperty(document, 'visibilityState', originalVisibilityStateDescriptor);
+      Object.defineProperty(
+        document,
+        'visibilityState',
+        originalVisibilityStateDescriptor,
+      );
     }
 
     window.history.replaceState({}, '', '/');
   });
 
   it('should prefer Polish when it appears first in navigator languages', () => {
-    Object.defineProperty(navigator, 'languages', { configurable: true, value: ['pl-PL', 'en-US'] });
+    Object.defineProperty(navigator, 'languages', {
+      configurable: true,
+      value: ['pl-PL', 'en-US'],
+    });
 
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -113,7 +132,10 @@ describe('AppComponent', () => {
   });
 
   it('should use English when it appears before Polish in navigator languages', () => {
-    Object.defineProperty(navigator, 'languages', { configurable: true, value: ['de-DE', 'en-GB', 'pl-PL'] });
+    Object.defineProperty(navigator, 'languages', {
+      configurable: true,
+      value: ['de-DE', 'en-GB', 'pl-PL'],
+    });
 
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -122,7 +144,10 @@ describe('AppComponent', () => {
   });
 
   it('should default to English when neither Polish nor English are present', () => {
-    Object.defineProperty(navigator, 'languages', { configurable: true, value: ['de-DE', 'fr-FR'] });
+    Object.defineProperty(navigator, 'languages', {
+      configurable: true,
+      value: ['de-DE', 'fr-FR'],
+    });
 
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -131,7 +156,10 @@ describe('AppComponent', () => {
   });
 
   it('should respect lang query param over navigator language', () => {
-    Object.defineProperty(navigator, 'languages', { configurable: true, value: ['pl-PL', 'en-US'] });
+    Object.defineProperty(navigator, 'languages', {
+      configurable: true,
+      value: ['pl-PL', 'en-US'],
+    });
     window.history.replaceState({}, '', '/?lang=en');
 
     const fixture = TestBed.createComponent(AppComponent);
@@ -144,13 +172,31 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
-    expect(app.desktopNavItems.map((item) => item.target)).toEqual(['home', 'philosophy', 'senses', 'gallery', 'about', 'contact']);
-    expect(app.mobileNavItems.map((item) => item.target)).toEqual(['home', 'philosophy', 'senses', 'gallery', 'about', 'workshops', 'contact']);
+    expect(app.desktopNavItems.map((item) => item.target)).toEqual([
+      'home',
+      'philosophy',
+      'senses',
+      'gallery',
+      'about',
+      'contact',
+    ]);
+    expect(app.mobileNavItems.map((item) => item.target)).toEqual([
+      'home',
+      'philosophy',
+      'senses',
+      'gallery',
+      'about',
+      'workshops',
+      'contact',
+    ]);
   });
 
   it('should pause soundtrack when document becomes hidden', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance as unknown as { ngAfterViewInit: () => void; soundtrack: HTMLAudioElement };
+    const app = fixture.componentInstance as unknown as {
+      ngAfterViewInit: () => void;
+      soundtrack: HTMLAudioElement;
+    };
     app.ngAfterViewInit();
 
     const soundtrack = app.soundtrack;
@@ -166,7 +212,10 @@ describe('AppComponent', () => {
     visibilityState = 'hidden';
 
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance as unknown as { ngAfterViewInit: () => void; soundtrack: HTMLAudioElement };
+    const app = fixture.componentInstance as unknown as {
+      ngAfterViewInit: () => void;
+      soundtrack: HTMLAudioElement;
+    };
     app.ngAfterViewInit();
 
     const soundtrack = app.soundtrack;

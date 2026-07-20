@@ -1,5 +1,13 @@
 import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, DestroyRef, ElementRef, ViewEncapsulation, inject, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DestroyRef,
+  ElementRef,
+  ViewEncapsulation,
+  inject,
+  signal,
+} from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs';
@@ -14,7 +22,16 @@ import { SiteHeaderComponent } from './site-header.component';
 import { WorkshopsSectionComponent } from './workshops-section.component';
 
 @Component({
-  imports: [AboutSectionComponent, ContactSectionComponent, GallerySectionComponent, HeroSectionComponent, PhilosophySectionComponent, SensesSectionComponent, SiteHeaderComponent, WorkshopsSectionComponent],
+  imports: [
+    AboutSectionComponent,
+    ContactSectionComponent,
+    GallerySectionComponent,
+    HeroSectionComponent,
+    PhilosophySectionComponent,
+    SensesSectionComponent,
+    SiteHeaderComponent,
+    WorkshopsSectionComponent,
+  ],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -94,16 +111,23 @@ export class AppComponent implements AfterViewInit {
     const initialLanguage = this.resolveInitialLanguage();
 
     this.currentLanguage.set(initialLanguage);
-    this.translate.use(initialLanguage).pipe(take(1)).subscribe(() => {
-      this.applySeo(initialLanguage);
-    });
+    this.translate
+      .use(initialLanguage)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.applySeo(initialLanguage);
+      });
   }
 
   ngAfterViewInit(): void {
-    const revealAnimatedElementsAboveViewport = () => this.revealAnimatedElementsAboveViewport();
+    const revealAnimatedElementsAboveViewport = () =>
+      this.revealAnimatedElementsAboveViewport();
 
     requestAnimationFrame(revealAnimatedElementsAboveViewport);
-    window.addEventListener('scroll', revealAnimatedElementsAboveViewport, { once: true, passive: true });
+    window.addEventListener('scroll', revealAnimatedElementsAboveViewport, {
+      once: true,
+      passive: true,
+    });
     this.initializeSoundtrackPlayback();
 
     this.destroyRef.onDestroy(() => {
@@ -216,7 +240,9 @@ export class AppComponent implements AfterViewInit {
 
     defaultView.addEventListener('pointerdown', retryPlayback);
     defaultView.addEventListener('keydown', retryPlayback);
-    defaultView.addEventListener('touchstart', retryPlayback, { passive: true });
+    defaultView.addEventListener('touchstart', retryPlayback, {
+      passive: true,
+    });
 
     this.removeSoundtrackActivationListeners = () => {
       defaultView.removeEventListener('pointerdown', retryPlayback);
@@ -247,7 +273,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   private revealAnimatedElementsAboveViewport(): void {
-    const animatedElements = this.host.nativeElement.querySelectorAll('.p-animateonscroll');
+    const animatedElements =
+      this.host.nativeElement.querySelectorAll('.p-animateonscroll');
 
     for (const element of animatedElements) {
       const animatedElement = element as HTMLElement;
@@ -265,9 +292,12 @@ export class AppComponent implements AfterViewInit {
     }
 
     this.currentLanguage.set(language);
-    this.translate.use(language).pipe(take(1)).subscribe(() => {
-      this.applySeo(language);
-    });
+    this.translate
+      .use(language)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.applySeo(language);
+      });
     this.isMobileMenuOpen.set(false);
   }
 
@@ -276,24 +306,34 @@ export class AppComponent implements AfterViewInit {
   }
 
   scrollTo(target: string): void {
-    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document
+      .getElementById(target)
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     this.isMobileMenuOpen.set(false);
   }
 
   private resolveInitialLanguage(): Language {
-    const searchParams = new URLSearchParams(this.document.location?.search ?? '');
+    const searchParams = new URLSearchParams(
+      this.document.location?.search ?? '',
+    );
     const languageFromQuery = this.asLanguage(searchParams.get('lang'));
 
     if (languageFromQuery) {
       return languageFromQuery;
     }
 
-    const navigatorLanguages = this.document.defaultView?.navigator.languages ?? [];
-    const languageCandidates = navigatorLanguages.length > 0 ? navigatorLanguages : [this.document.defaultView?.navigator.language ?? ''];
+    const navigatorLanguages =
+      this.document.defaultView?.navigator.languages ?? [];
+    const languageCandidates =
+      navigatorLanguages.length > 0
+        ? navigatorLanguages
+        : [this.document.defaultView?.navigator.language ?? ''];
 
     const firstSupportedLanguage = languageCandidates
       .map((language) => language.toLowerCase())
-      .find((language) => language.startsWith('pl') || language.startsWith('en'));
+      .find(
+        (language) => language.startsWith('pl') || language.startsWith('en'),
+      );
 
     if (!firstSupportedLanguage) {
       return 'en';
@@ -330,33 +370,72 @@ export class AppComponent implements AfterViewInit {
         const socialImageUrl = this.getSocialImageUrl();
 
         this.title.setTitle(seo['seo.title']);
-        this.meta.updateTag({ name: 'description', content: seo['seo.description'] });
+        this.meta.updateTag({
+          name: 'description',
+          content: seo['seo.description'],
+        });
         this.meta.updateTag({ name: 'keywords', content: seo['seo.keywords'] });
         this.meta.updateTag({ name: 'language', content: language });
         this.meta.updateTag({ property: 'og:type', content: 'website' });
-        this.meta.updateTag({ property: 'og:title', content: seo['seo.title'] });
-        this.meta.updateTag({ property: 'og:description', content: seo['seo.description'] });
+        this.meta.updateTag({
+          property: 'og:title',
+          content: seo['seo.title'],
+        });
+        this.meta.updateTag({
+          property: 'og:description',
+          content: seo['seo.description'],
+        });
         this.meta.updateTag({ property: 'og:url', content: canonicalUrl });
-        this.meta.updateTag({ property: 'og:site_name', content: seo['seo.siteName'] });
-        this.meta.updateTag({ property: 'og:locale', content: language === 'pl' ? 'pl_PL' : 'en_US' });
-        this.meta.updateTag({ property: 'og:locale:alternate', content: alternateLanguage === 'pl' ? 'pl_PL' : 'en_US' });
+        this.meta.updateTag({
+          property: 'og:site_name',
+          content: seo['seo.siteName'],
+        });
+        this.meta.updateTag({
+          property: 'og:locale',
+          content: language === 'pl' ? 'pl_PL' : 'en_US',
+        });
+        this.meta.updateTag({
+          property: 'og:locale:alternate',
+          content: alternateLanguage === 'pl' ? 'pl_PL' : 'en_US',
+        });
         this.meta.updateTag({ property: 'og:image', content: socialImageUrl });
-        this.meta.updateTag({ property: 'og:image:type', content: 'image/jpeg' });
+        this.meta.updateTag({
+          property: 'og:image:type',
+          content: 'image/jpeg',
+        });
         this.meta.updateTag({ property: 'og:image:width', content: '1210' });
         this.meta.updateTag({ property: 'og:image:height', content: '638' });
-        this.meta.updateTag({ property: 'og:image:alt', content: seo['seo.socialImageAlt'] });
-        this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-        this.meta.updateTag({ name: 'twitter:title', content: seo['seo.title'] });
-        this.meta.updateTag({ name: 'twitter:description', content: seo['seo.description'] });
+        this.meta.updateTag({
+          property: 'og:image:alt',
+          content: seo['seo.socialImageAlt'],
+        });
+        this.meta.updateTag({
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        });
+        this.meta.updateTag({
+          name: 'twitter:title',
+          content: seo['seo.title'],
+        });
+        this.meta.updateTag({
+          name: 'twitter:description',
+          content: seo['seo.description'],
+        });
         this.meta.updateTag({ name: 'twitter:image', content: socialImageUrl });
-        this.meta.updateTag({ name: 'twitter:image:alt', content: seo['seo.socialImageAlt'] });
+        this.meta.updateTag({
+          name: 'twitter:image:alt',
+          content: seo['seo.socialImageAlt'],
+        });
 
         this.updateLinkTag('canonical', canonicalUrl);
         this.updateLinkTag('alternate', this.getLanguageUrl('pl'), 'pl');
         this.updateLinkTag('alternate', this.getLanguageUrl('en'), 'en');
         this.updateLinkTag('alternate', this.getLanguageUrl('pl'), 'x-default');
 
-        this.updateStructuredData(language, seo['seo.structuredDataDescription']);
+        this.updateStructuredData(
+          language,
+          seo['seo.structuredDataDescription'],
+        );
       });
   }
 
@@ -371,7 +450,11 @@ export class AppComponent implements AfterViewInit {
 
     url.searchParams.set('lang', language);
 
-    this.document.defaultView.history.replaceState({}, '', `${url.pathname}?${url.searchParams.toString()}${url.hash}`);
+    this.document.defaultView.history.replaceState(
+      {},
+      '',
+      `${url.pathname}?${url.searchParams.toString()}${url.hash}`,
+    );
   }
 
   private getLanguageUrl(language: Language): string {
@@ -395,8 +478,12 @@ export class AppComponent implements AfterViewInit {
   }
 
   private updateLinkTag(rel: string, href: string, hreflang?: string): void {
-    const selector = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`;
-    let element = this.document.head.querySelector(selector) as HTMLLinkElement | null;
+    const selector = hreflang
+      ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+      : `link[rel="${rel}"]:not([hreflang])`;
+    let element = this.document.head.querySelector(
+      selector,
+    ) as HTMLLinkElement | null;
 
     if (!element) {
       element = this.document.createElement('link');
@@ -413,7 +500,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   private updateStructuredData(language: Language, description: string): void {
-    let scriptElement = this.document.head.querySelector('#kamila-seo-schema') as HTMLScriptElement | null;
+    let scriptElement = this.document.head.querySelector(
+      '#kamila-seo-schema',
+    ) as HTMLScriptElement | null;
 
     if (!scriptElement) {
       scriptElement = this.document.createElement('script');
@@ -426,7 +515,10 @@ export class AppComponent implements AfterViewInit {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
       name: 'Kamila Denis',
-      serviceType: language === 'pl' ? 'Architektura wnętrz dobrostanu' : 'Wellbeing interior architecture',
+      serviceType:
+        language === 'pl'
+          ? 'Architektura wnętrz dobrostanu'
+          : 'Wellbeing interior architecture',
       description,
       image: this.getSocialImageUrl(),
       logo: this.getSocialImageUrl(),

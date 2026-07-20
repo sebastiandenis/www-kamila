@@ -4,10 +4,10 @@ import { AnimateOnScroll } from 'primeng/animateonscroll';
 import { Button } from 'primeng/button';
 
 @Component({
-	imports: [AnimateOnScroll, Button, TranslatePipe],
-	selector: 'app-workshops-section',
-	templateUrl: './workshops-section.component.html',
+  imports: [AnimateOnScroll, Button, TranslatePipe],
+  selector: 'app-workshops-section',
+  templateUrl: './workshops-section.component.html',
 })
 export class WorkshopsSectionComponent {
-	readonly navigate = output<string>();
+  readonly navigate = output<string>();
 }

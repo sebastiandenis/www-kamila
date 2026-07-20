@@ -1,18 +1,55 @@
-<section id="philosophy" class="section-space bg-[linear-gradient(135deg,#ffffff_0%,#faf9f6_54%,rgba(180,122,58,0.1)_100%)] px-5 lg:px-8">
-	<div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
-		<div pAnimateOnScroll enterClass="reveal-drift-right" leaveClass="reveal-drift-right-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true" class="order-2">
-			<p class="section-kicker">{{ 'philosophy.kicker' | translate }}</p>
-			<h2 class="section-title">{{ 'philosophy.title' | translate }}</h2>
-			<p class="mt-7 text-lg font-semibold leading-8 text-forest-green">{{ 'philosophy.lead' | translate }}</p>
-			<p class="mt-6 leading-8 text-charcoal/78">{{ 'philosophy.paragraph1' | translate }}</p>
-			<p class="mt-5 leading-8 text-charcoal/78">{{ 'philosophy.paragraph2' | translate }}</p>
-			<blockquote class="mt-9 border-l-4 border-gold-accent pl-6 text-2xl leading-10 text-forest-green">{{ 'philosophy.quote' | translate }}</blockquote>
-		</div>
+<section
+  id="philosophy"
+  class="section-space bg-[linear-gradient(135deg,#ffffff_0%,#faf9f6_54%,rgba(180,122,58,0.1)_100%)] px-5 lg:px-8"
+>
+  <div
+    class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]"
+  >
+    <div
+      pAnimateOnScroll
+      enterClass="reveal-drift-right"
+      leaveClass="reveal-drift-right-out"
+      threshold="0.4"
+      rootMargin="0px 0px 140px 0px"
+      [once]="true"
+      class="order-2"
+    >
+      <p class="section-kicker">{{ 'philosophy.kicker' | translate }}</p>
+      <h2 class="section-title">{{ 'philosophy.title' | translate }}</h2>
+      <p class="mt-7 text-lg font-semibold leading-8 text-forest-green">
+        {{ 'philosophy.lead' | translate }}
+      </p>
+      <p class="mt-6 leading-8 text-charcoal/78">
+        {{ 'philosophy.paragraph1' | translate }}
+      </p>
+      <p class="mt-5 leading-8 text-charcoal/78">
+        {{ 'philosophy.paragraph2' | translate }}
+      </p>
+      <blockquote
+        class="mt-9 border-l-4 border-gold-accent pl-6 text-2xl leading-10 text-forest-green"
+      >
+        {{ 'philosophy.quote' | translate }}
+      </blockquote>
+    </div>
 
-		<div pAnimateOnScroll enterClass="reveal-drift-left scroll-delay-1" leaveClass="reveal-drift-left-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true" class="order-1">
-			<div class="editorial-photo overflow-hidden rounded-[1.75rem] border border-[#9b6a36]/20 bg-[linear-gradient(145deg,rgba(122,154,131,0.12),rgba(180,122,58,0.1))] p-3 shadow-2xl shadow-[#9b6a36]/12">
-				<img class="aspect-[4/5] w-full rounded-[1.25rem] object-cover" src="media/me3.jpeg" alt="Interior detail with greenery" />
-			</div>
-		</div>
-	</div>
+    <div
+      pAnimateOnScroll
+      enterClass="reveal-drift-left scroll-delay-1"
+      leaveClass="reveal-drift-left-out"
+      threshold="0.4"
+      rootMargin="0px 0px 140px 0px"
+      [once]="true"
+      class="order-1"
+    >
+      <div
+        class="editorial-photo overflow-hidden rounded-[1.75rem] border border-[#9b6a36]/20 bg-[linear-gradient(145deg,rgba(122,154,131,0.12),rgba(180,122,58,0.1))] p-3 shadow-2xl shadow-[#9b6a36]/12"
+      >
+        <img
+          class="aspect-[4/5] w-full rounded-[1.25rem] object-cover"
+          src="media/me3.jpeg"
+          alt="Interior detail with greenery"
+        />
+      </div>
+    </div>
+  </div>
 </section>

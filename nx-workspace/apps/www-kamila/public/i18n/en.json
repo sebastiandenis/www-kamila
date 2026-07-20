@@ -1,97 +1,97 @@
 {
-	"nav": {
-		"home": "Home",
-		"philosophy": "Philosophy",
-		"senses": "Senses in the interior",
-		"gallery": "Gallery",
-		"about": "About me",
-		"workshops": "Workshops",
-		"contact": "Contact",
-		"menu": "Open menu"
-	},
-	"hero": {
-		"eyebrow": "Architecture of wellbeing",
-		"title": "Wellbeing Interior Architect - Kamila Denis",
-		"subtitle": "Your home is your second earthly shell. Let's design a space for your body and spirit.",
-		"cta": "Discover your wellbeing",
-		"secondaryCta": "Let's talk"
-	},
-	"philosophy": {
-		"kicker": "Philosophy",
-		"title": "A space that breathes with you",
-		"lead": "Have you ever walked into an interior that is perfect, like from a catalog, where after a split second you feel... coldness?",
-		"paragraph1": "A space that was supposed to be an oasis becomes just another furniture showroom - an alien, overstimulating place that drains your energy instead of nourishing it.",
-		"paragraph2": "I believe that your body is your first home on this Earth. The place where you live should be its natural extension - a safe shell that takes the weight of the day off your shoulders before you even have time to think about it.",
-		"quote": "I don't just design walls. I design flow, lightness, and wellbeing."
-	},
-	"senses": {
-		"kicker": "Senses and nature",
-		"title": "Life in raw matter. What does your home need?",
-		"intro": "You aren't looking for someone to choose trendy tiles. You feel that space affects your health, relationships, and clarity of mind. I introduce an authentic connection with nature into raw interiors.",
-		"cards": {
-			"greenery": {
-				"title": "Temple of Greenery",
-				"body": "Plants are not decorations. They are living partners in your wellbeing. They purify the air, harmonize the biofield, and restore the primal rhythm of nature in an urban world."
-			},
-			"earth": {
-				"title": "Structure of the Earth",
-				"body": "Stone is the primal foundation and the oldest memory of the Earth. Natural minerals and crystals act in the interior as radiation neutralizers and anchors of peace."
-			},
-			"scent": {
-				"title": "Architecture of Scent",
-				"body": "Invisible design bypassing the logical mind. Pure essential oils determine whether, upon crossing the threshold, your body immediately lets go of stress."
-			},
-			"flow": {
-				"title": "Conscious Flow",
-				"body": "I structure your home and organize the flow of energy so that your interior becomes your personal charger, supporting who you dream of being."
-			}
-		}
-	},
-	"gallery": {
-		"kicker": "Project gallery",
-		"title": "Interiors that restore rhythm and breath",
-		"intro": "Each project begins with how you want to feel when you cross your own threshold. This curated preview shows 15 selected spaces from my interior design library, changing with every visit.",
-		"quote": "A nourishing interior is not a trend. It is a daily ritual of calm, light, and grounding.",
-		"cta": "Talk about your project",
-		"previous": "Previous photo",
-		"next": "Next photo",
-		"openFullscreen": "Open photo in fullscreen",
-		"closeFullscreen": "Close fullscreen",
-		"highlights": {
-			"biophilic": "Biophilic layers",
-			"light": "Natural light choreography",
-			"materiality": "Grounding materiality"
-		}
-	},
-	"about": {
-		"kicker": "About me",
-		"title": "An architect who started designing with her heart",
-		"paragraph1": "For 24 years, I created beautiful and functional spaces in the world of classical interior architecture. However, I realized that designing matter alone is not enough. My clients often subconsciously felt a burden in their own homes. They didn't feel at home.",
-		"paragraph2": "To bring soothing comfort into interiors, I combined the precision of an architect with a sensitivity to human energy, including Recall Healing, the Silva Method, and the Essence of the Divine Feminine School.",
-		"manifest": "Design your joy. The ultimate luxury is finding out what truly brings us joy. A home is an investment in how deeply you can breathe when you close the door behind you.",
-		"manifestLabel": "Home manifesto",
-		"manifestLead": "Design your joy",
-		"manifestBody": "The ultimate luxury is finding out what truly brings us joy.",
-		"manifestClose": "A home is an investment in how deeply you can breathe when you close the door behind you."
-	},
-	"workshop": {
-		"badge": "Signature workshop",
-		"title": "Don't feel at home, even though you live there?",
-		"body": "This is a meeting for those who are stuck in the furniture showroom of their own lives. We will go deeper to answer what brings you joy, what kind of interior nourishes your soul, and how you truly want to live.",
-		"cta": "Sign up for the workshop"
-	},
-	"contact": {
-		"kicker": "Contact",
-		"title": "Let's take this step together",
-		"body": "If you feel it's time for a space that truly resonates with your biology and soul, I invite you into my world.",
-		"cta": "Let's talk about your new home"
-	},
-	"seo": {
-		"title": "Wellbeing Interior Architect | Kamila Denis | Holistic Interior Design",
-		"description": "Holistic wellbeing interior architecture by Kamila Denis: philosophy, senses in interior space, project gallery, signature workshop, and collaboration to design a home that restores your energy.",
-		"keywords": "Kamila Denis, wellbeing interior architect, holistic interior design, project gallery, biophilic interior design, interior architect Poland, wellness home design, signature workshop",
-		"siteName": "Wellbeing Interior Architect - Kamila Denis",
-		"structuredDataDescription": "Kamila Denis designs holistic wellbeing interiors. She combines architectural precision with sensitivity to nature, scent, and conscious flow so every home supports regeneration, clarity, and joy.",
-		"socialImageAlt": "Wellbeing Interior Architect - Kamila Denis"
-	}
+  "nav": {
+    "home": "Home",
+    "philosophy": "Philosophy",
+    "senses": "Senses in the interior",
+    "gallery": "Gallery",
+    "about": "About me",
+    "workshops": "Workshops",
+    "contact": "Contact",
+    "menu": "Open menu"
+  },
+  "hero": {
+    "eyebrow": "Architecture of wellbeing",
+    "title": "Wellbeing Interior Architect - Kamila Denis",
+    "subtitle": "Your home is your second earthly shell. Let's design a space for your body and spirit.",
+    "cta": "Discover your wellbeing",
+    "secondaryCta": "Let's talk"
+  },
+  "philosophy": {
+    "kicker": "Philosophy",
+    "title": "A space that breathes with you",
+    "lead": "Have you ever walked into an interior that is perfect, like from a catalog, where after a split second you feel... coldness?",
+    "paragraph1": "A space that was supposed to be an oasis becomes just another furniture showroom - an alien, overstimulating place that drains your energy instead of nourishing it.",
+    "paragraph2": "I believe that your body is your first home on this Earth. The place where you live should be its natural extension - a safe shell that takes the weight of the day off your shoulders before you even have time to think about it.",
+    "quote": "I don't just design walls. I design flow, lightness, and wellbeing."
+  },
+  "senses": {
+    "kicker": "Senses and nature",
+    "title": "Life in raw matter. What does your home need?",
+    "intro": "You aren't looking for someone to choose trendy tiles. You feel that space affects your health, relationships, and clarity of mind. I introduce an authentic connection with nature into raw interiors.",
+    "cards": {
+      "greenery": {
+        "title": "Temple of Greenery",
+        "body": "Plants are not decorations. They are living partners in your wellbeing. They purify the air, harmonize the biofield, and restore the primal rhythm of nature in an urban world."
+      },
+      "earth": {
+        "title": "Structure of the Earth",
+        "body": "Stone is the primal foundation and the oldest memory of the Earth. Natural minerals and crystals act in the interior as radiation neutralizers and anchors of peace."
+      },
+      "scent": {
+        "title": "Architecture of Scent",
+        "body": "Invisible design bypassing the logical mind. Pure essential oils determine whether, upon crossing the threshold, your body immediately lets go of stress."
+      },
+      "flow": {
+        "title": "Conscious Flow",
+        "body": "I structure your home and organize the flow of energy so that your interior becomes your personal charger, supporting who you dream of being."
+      }
+    }
+  },
+  "gallery": {
+    "kicker": "Project gallery",
+    "title": "Interiors that restore rhythm and breath",
+    "intro": "Each project begins with how you want to feel when you cross your own threshold. This curated preview shows 15 selected spaces from my interior design library, changing with every visit.",
+    "quote": "A nourishing interior is not a trend. It is a daily ritual of calm, light, and grounding.",
+    "cta": "Talk about your project",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "openFullscreen": "Open photo in fullscreen",
+    "closeFullscreen": "Close fullscreen",
+    "highlights": {
+      "biophilic": "Biophilic layers",
+      "light": "Natural light choreography",
+      "materiality": "Grounding materiality"
+    }
+  },
+  "about": {
+    "kicker": "About me",
+    "title": "An architect who started designing with her heart",
+    "paragraph1": "For 24 years, I created beautiful and functional spaces in the world of classical interior architecture. However, I realized that designing matter alone is not enough. My clients often subconsciously felt a burden in their own homes. They didn't feel at home.",
+    "paragraph2": "To bring soothing comfort into interiors, I combined the precision of an architect with a sensitivity to human energy, including Recall Healing, the Silva Method, and the Essence of the Divine Feminine School.",
+    "manifest": "Design your joy. The ultimate luxury is finding out what truly brings us joy. A home is an investment in how deeply you can breathe when you close the door behind you.",
+    "manifestLabel": "Home manifesto",
+    "manifestLead": "Design your joy",
+    "manifestBody": "The ultimate luxury is finding out what truly brings us joy.",
+    "manifestClose": "A home is an investment in how deeply you can breathe when you close the door behind you."
+  },
+  "workshop": {
+    "badge": "Signature workshop",
+    "title": "Don't feel at home, even though you live there?",
+    "body": "This is a meeting for those who are stuck in the furniture showroom of their own lives. We will go deeper to answer what brings you joy, what kind of interior nourishes your soul, and how you truly want to live.",
+    "cta": "Sign up for the workshop"
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Let's take this step together",
+    "body": "If you feel it's time for a space that truly resonates with your biology and soul, I invite you into my world.",
+    "cta": "Let's talk about your new home"
+  },
+  "seo": {
+    "title": "Wellbeing Interior Architect | Kamila Denis | Holistic Interior Design",
+    "description": "Holistic wellbeing interior architecture by Kamila Denis: philosophy, senses in interior space, project gallery, signature workshop, and collaboration to design a home that restores your energy.",
+    "keywords": "Kamila Denis, wellbeing interior architect, holistic interior design, project gallery, biophilic interior design, interior architect Poland, wellness home design, signature workshop",
+    "siteName": "Wellbeing Interior Architect - Kamila Denis",
+    "structuredDataDescription": "Kamila Denis designs holistic wellbeing interiors. She combines architectural precision with sensitivity to nature, scent, and conscious flow so every home supports regeneration, clarity, and joy.",
+    "socialImageAlt": "Wellbeing Interior Architect - Kamila Denis"
+  }
 }

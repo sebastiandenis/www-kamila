@@ -8,16 +8,12 @@
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/www-kamila",
         "index": "apps/www-kamila/src/index.html",
         "browser": "apps/www-kamila/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/www-kamila/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -26,9 +22,7 @@
             "input": "apps/www-kamila/public"
           }
         ],
-        "styles": [
-          "apps/www-kamila/src/styles.scss"
-        ],
+        "styles": ["apps/www-kamila/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -79,9 +73,7 @@
     },
     "test": {
       "executor": "@nx/vitest:test",
-      "outputs": [
-        "{options.reportsDirectory}"
-      ],
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
         "reportsDirectory": "coverage/apps/www-kamila"
       }

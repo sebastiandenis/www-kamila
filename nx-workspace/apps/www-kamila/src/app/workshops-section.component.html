@@ -1,15 +1,40 @@
-<section id="workshops" class="section-space bg-[linear-gradient(180deg,#ffffff_0%,rgba(250,249,246,0.82)_100%)] px-5 lg:px-8">
-	<div class="mx-auto max-w-5xl">
-		<div pAnimateOnScroll enterClass="reveal-panel" leaveClass="reveal-panel-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true" class="workshop-panel rounded-[2rem] border border-[#b47a3a]/35 bg-[radial-gradient(circle_at_88%_18%,rgba(180,122,58,0.18),transparent_28%),linear-gradient(135deg,#faf9f6_0%,#eef5ee_100%)] p-8 shadow-2xl shadow-[#9b6a36]/12 sm:p-12">
-			<div class="mb-8 flex flex-wrap items-center gap-3">
-				<span class="rounded-full bg-forest-green px-4 py-2 text-xs uppercase tracking-[0.22em] text-warm-white">{{ 'workshop.badge' | translate }}</span>
-				<span class="h-px flex-1 bg-gold-accent/40"></span>
-			</div>
-			<h2 class="max-w-4xl text-4xl font-semibold leading-tight text-forest-green sm:text-5xl">{{ 'workshop.title' | translate }}</h2>
-			<p class="mt-7 max-w-3xl text-lg leading-8 text-charcoal/78">{{ 'workshop.body' | translate }}</p>
-			<div class="mt-9">
-				<p-button [label]="'workshop.cta' | translate" icon="pi pi-calendar-plus" styleClass="cta-button" (onClick)="navigate.emit('contact')"></p-button>
-			</div>
-		</div>
-	</div>
+<section
+  id="workshops"
+  class="section-space bg-[linear-gradient(180deg,#ffffff_0%,rgba(250,249,246,0.82)_100%)] px-5 lg:px-8"
+>
+  <div class="mx-auto max-w-5xl">
+    <div
+      pAnimateOnScroll
+      enterClass="reveal-panel"
+      leaveClass="reveal-panel-out"
+      threshold="0.4"
+      rootMargin="0px 0px 140px 0px"
+      [once]="true"
+      class="workshop-panel rounded-[2rem] border border-[#b47a3a]/35 bg-[radial-gradient(circle_at_88%_18%,rgba(180,122,58,0.18),transparent_28%),linear-gradient(135deg,#faf9f6_0%,#eef5ee_100%)] p-8 shadow-2xl shadow-[#9b6a36]/12 sm:p-12"
+    >
+      <div class="mb-8 flex flex-wrap items-center gap-3">
+        <span
+          class="rounded-full bg-forest-green px-4 py-2 text-xs uppercase tracking-[0.22em] text-warm-white"
+          >{{ 'workshop.badge' | translate }}</span
+        >
+        <span class="h-px flex-1 bg-gold-accent/40"></span>
+      </div>
+      <h2
+        class="max-w-4xl text-4xl font-semibold leading-tight text-forest-green sm:text-5xl"
+      >
+        {{ 'workshop.title' | translate }}
+      </h2>
+      <p class="mt-7 max-w-3xl text-lg leading-8 text-charcoal/78">
+        {{ 'workshop.body' | translate }}
+      </p>
+      <div class="mt-9">
+        <p-button
+          [label]="'workshop.cta' | translate"
+          icon="pi pi-calendar-plus"
+          styleClass="cta-button"
+          (onClick)="navigate.emit('contact')"
+        ></p-button>
+      </div>
+    </div>
+  </div>
 </section>

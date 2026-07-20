@@ -1,6 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { DOCUMENT } from '@angular/common';
-import { GallerySectionComponent, selectRandomGallerySlides } from './gallery-section.component';
+import {
+  GallerySectionComponent,
+  selectRandomGallerySlides,
+} from './gallery-section.component';
 
 describe('GallerySectionComponent', () => {
   beforeEach(() => {
@@ -10,7 +13,9 @@ describe('GallerySectionComponent', () => {
   });
 
   it('should choose 15 randomized slides on init', () => {
-    const component = TestBed.runInInjectionContext(() => new GallerySectionComponent());
+    const component = TestBed.runInInjectionContext(
+      () => new GallerySectionComponent(),
+    );
     component.ngOnInit();
 
     const chosenSlides = component.galleryImages();
