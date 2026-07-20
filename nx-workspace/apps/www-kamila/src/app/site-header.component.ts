@@ -7,6 +7,7 @@ import { Language, NavItem } from './app.models';
   imports: [NgIconComponent, TranslatePipe],
   selector: 'app-site-header',
   templateUrl: './site-header.component.html',
+  styleUrl: './site-header.component.scss',
 })
 export class SiteHeaderComponent {
   readonly currentLanguage = input.required<Language>();
