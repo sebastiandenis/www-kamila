@@ -234,10 +234,10 @@ export class AppComponent implements AfterViewInit {
     const location = this.document.location;
 
     if (!location) {
-      return '/media/logo01.jpg';
+      return '/media/logo02.jpg';
     }
 
-    return `${location.origin}/media/logo01.jpg`;
+    return `${location.origin}/media/logo02.jpg`;
   }
 
   private updateLinkTag(rel: string, href: string, hreflang?: string): void {
