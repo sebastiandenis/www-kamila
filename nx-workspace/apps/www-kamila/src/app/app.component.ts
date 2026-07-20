@@ -167,24 +167,35 @@ export class AppComponent implements AfterViewInit {
         'seo.keywords',
         'seo.siteName',
         'seo.structuredDataDescription',
+        'seo.socialImageAlt',
       ])
       .pipe(take(1))
       .subscribe((seo) => {
         const canonicalUrl = this.getLanguageUrl(language);
         const alternateLanguage: Language = language === 'pl' ? 'en' : 'pl';
+        const socialImageUrl = this.getSocialImageUrl();
 
         this.title.setTitle(seo['seo.title']);
         this.meta.updateTag({ name: 'description', content: seo['seo.description'] });
         this.meta.updateTag({ name: 'keywords', content: seo['seo.keywords'] });
         this.meta.updateTag({ name: 'language', content: language });
+        this.meta.updateTag({ property: 'og:type', content: 'website' });
         this.meta.updateTag({ property: 'og:title', content: seo['seo.title'] });
         this.meta.updateTag({ property: 'og:description', content: seo['seo.description'] });
         this.meta.updateTag({ property: 'og:url', content: canonicalUrl });
         this.meta.updateTag({ property: 'og:site_name', content: seo['seo.siteName'] });
         this.meta.updateTag({ property: 'og:locale', content: language === 'pl' ? 'pl_PL' : 'en_US' });
         this.meta.updateTag({ property: 'og:locale:alternate', content: alternateLanguage === 'pl' ? 'pl_PL' : 'en_US' });
+        this.meta.updateTag({ property: 'og:image', content: socialImageUrl });
+        this.meta.updateTag({ property: 'og:image:type', content: 'image/jpeg' });
+        this.meta.updateTag({ property: 'og:image:width', content: '1210' });
+        this.meta.updateTag({ property: 'og:image:height', content: '638' });
+        this.meta.updateTag({ property: 'og:image:alt', content: seo['seo.socialImageAlt'] });
+        this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
         this.meta.updateTag({ name: 'twitter:title', content: seo['seo.title'] });
         this.meta.updateTag({ name: 'twitter:description', content: seo['seo.description'] });
+        this.meta.updateTag({ name: 'twitter:image', content: socialImageUrl });
+        this.meta.updateTag({ name: 'twitter:image:alt', content: seo['seo.socialImageAlt'] });
 
         this.updateLinkTag('canonical', canonicalUrl);
         this.updateLinkTag('alternate', this.getLanguageUrl('pl'), 'pl');
@@ -217,6 +228,16 @@ export class AppComponent implements AfterViewInit {
     }
 
     return `${location.origin}${location.pathname}?lang=${language}`;
+  }
+
+  private getSocialImageUrl(): string {
+    const location = this.document.location;
+
+    if (!location) {
+      return '/media/logo01.jpg';
+    }
+
+    return `${location.origin}/media/logo01.jpg`;
   }
 
   private updateLinkTag(rel: string, href: string, hreflang?: string): void {
@@ -253,6 +274,8 @@ export class AppComponent implements AfterViewInit {
       name: 'Kamila Denis',
       serviceType: language === 'pl' ? 'Architektura wnętrz dobrostanu' : 'Wellbeing interior architecture',
       description,
+      image: this.getSocialImageUrl(),
+      logo: this.getSocialImageUrl(),
       areaServed: language === 'pl' ? 'Polska' : 'Poland',
       availableLanguage: ['pl', 'en'],
       telephone: '+48 664 726 723',

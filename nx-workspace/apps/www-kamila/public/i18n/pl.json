@@ -87,9 +87,10 @@
 	},
 	"seo": {
 		"title": "Kamila Denis | Architekt Wnętrz Dobrostanu | Holistyczna Architektura Wnętrz",
-		"description": "Projektuję wnętrza dobrostanu: filozofia, zmysły i natura, autorski warsztat oraz kontakt. Tworzę przestrzenie, które wspierają ciało, umysł i ducha.",
-		"keywords": "Kamila Denis, architekt wnętrz, architektura dobrostanu, holistyczne wnętrza, projektowanie wnętrz Warszawa, warsztaty wnętrzarskie, zmysły we wnętrzu",
+		"description": "Projektuję wnętrza dobrostanu: filozofia, zmysły i natura, galeria realizacji, autorski warsztat oraz kontakt. Tworzę przestrzenie, które wspierają ciało, umysł i ducha.",
+		"keywords": "Kamila Denis, architekt wnętrz, architektura dobrostanu, galeria realizacji wnętrz, holistyczne wnętrza, projektowanie wnętrz Warszawa, warsztaty wnętrzarskie, zmysły we wnętrzu",
 		"siteName": "Kamila Denis Architekt Wnętrz Dobrostanu",
-		"structuredDataDescription": "Kamila Denis tworzy holistyczne wnętrza dobrostanu. Łączy precyzję architekta z pracą na zmysłach, naturze i przepływie energii, aby dom stał się miejscem regeneracji i radości."
+		"structuredDataDescription": "Kamila Denis tworzy holistyczne wnętrza dobrostanu. Łączy precyzję architekta z pracą na zmysłach, naturze i przepływie energii, aby dom stał się miejscem regeneracji i radości.",
+		"socialImageAlt": "Logo Kamila Denis - architektura wnętrz dobrostanu"
 	}
 }
