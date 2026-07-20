@@ -46,6 +46,22 @@
 			}
 		}
 	},
+	"gallery": {
+		"kicker": "Project gallery",
+		"title": "Interiors that restore rhythm and breath.",
+		"intro": "Each project begins with how you want to feel when you cross your own threshold. This curated preview shows 15 selected spaces from my interior design library, changing with every visit.",
+		"quote": "A nourishing interior is not a trend. It is a daily ritual of calm, light, and grounding.",
+		"cta": "Talk about your project",
+		"previous": "Previous photo",
+		"next": "Next photo",
+		"openFullscreen": "Open photo in fullscreen",
+		"closeFullscreen": "Close fullscreen",
+		"highlights": {
+			"biophilic": "Biophilic layers",
+			"light": "Natural light choreography",
+			"materiality": "Grounding materiality"
+		}
+	},
 	"about": {
 		"kicker": "About me",
 		"title": "An architect who started designing with her heart.",

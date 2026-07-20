@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs';
 import { AboutSectionComponent } from './about-section.component';
 import { ContactSectionComponent } from './contact-section.component';
+import { GallerySectionComponent } from './gallery-section.component';
 import { HeroSectionComponent } from './hero-section.component';
 import { Language, NavItem, SenseCard } from './app.models';
 import { PhilosophySectionComponent } from './philosophy-section.component';
@@ -13,7 +14,7 @@ import { SiteHeaderComponent } from './site-header.component';
 import { WorkshopsSectionComponent } from './workshops-section.component';
 
 @Component({
-  imports: [AboutSectionComponent, ContactSectionComponent, HeroSectionComponent, PhilosophySectionComponent, SensesSectionComponent, SiteHeaderComponent, WorkshopsSectionComponent],
+  imports: [AboutSectionComponent, ContactSectionComponent, GallerySectionComponent, HeroSectionComponent, PhilosophySectionComponent, SensesSectionComponent, SiteHeaderComponent, WorkshopsSectionComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

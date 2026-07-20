@@ -46,6 +46,22 @@
 			}
 		}
 	},
+	"gallery": {
+		"kicker": "Galeria realizacji",
+		"title": "Wnętrza, które przywracają rytm i oddech.",
+		"intro": "Każdy projekt zaczynam od pytania, co chcesz poczuć po przekroczeniu progu własnego domu.",
+		"quote": "Kojące wnętrze nie jest trendem. To codzienny rytuał spokoju, światła i ugruntowania.",
+		"cta": "Porozmawiajmy o Twoim projekcie",
+		"previous": "Poprzednie zdjęcie",
+		"next": "Następne zdjęcie",
+		"openFullscreen": "Otwórz zdjęcie na pełnym ekranie",
+		"closeFullscreen": "Zamknij pełny ekran",
+		"highlights": {
+			"biophilic": "Biofiliczne warstwy",
+			"light": "Choreografia naturalnego światła",
+			"materiality": "Uziemiająca materialność"
+		}
+	},
 	"about": {
 		"kicker": "O mnie",
 		"title": "Architekt, który zaczął projektować sercem.",

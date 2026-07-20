@@ -1,0 +1,77 @@
+<section id="gallery" class="section-space bg-[linear-gradient(180deg,#ffffff_0%,rgba(122,154,131,0.08)_100%)] px-5 lg:px-8">
+  <div class="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+    <div pAnimateOnScroll enterClass="reveal-drift-left" leaveClass="reveal-drift-left-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true" class="lg:sticky lg:top-28">
+      <p class="section-kicker">{{ 'gallery.kicker' | translate }}</p>
+      <h2 class="section-title">{{ 'gallery.title' | translate }}</h2>
+
+      <p class="mt-7 border-l-4 border-gold-accent pl-5 text-lg leading-8 text-forest-green/90">{{ 'gallery.quote' | translate }}</p>
+
+      <div class="mt-9 flex flex-wrap gap-3">
+        @for (highlight of galleryHighlights; track highlight) {
+          <span class="rounded-full border border-sage-green/30 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-forest-green shadow-sm">
+            {{ highlight | translate }}
+          </span>
+        }
+      </div>
+    </div>
+
+    <div pAnimateOnScroll enterClass="reveal-zoom scroll-delay-1" leaveClass="reveal-zoom-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true" class="relative">
+      <div class="pointer-events-none absolute -left-5 top-8 h-24 w-24 rounded-full bg-sage-green/25 blur-2xl"></div>
+      <div class="pointer-events-none absolute -bottom-4 -right-4 h-28 w-28 rounded-full bg-gold-accent/24 blur-2xl"></div>
+
+      <div class="wellbeing-slider" (mouseenter)="pauseAutoplay()" (mouseleave)="resumeAutoplay()">
+        <button class="queue-nav queue-nav-left" type="button" [attr.aria-label]="'gallery.previous' | translate" (click)="showPrevious()">
+          <i class="pi pi-angle-left"></i>
+        </button>
+
+        <div class="queue-frame" [class.is-switching-next]="isTransitioning() && transitionDirection() === 'next'" [class.is-switching-prev]="isTransitioning() && transitionDirection() === 'prev'">
+          @if (previousSlide(); as prevSlide) {
+            <article class="queue-card queue-card-prev" [attr.aria-label]="'gallery.previous' | translate" tabindex="0" role="button" (click)="showPrevious()" (keydown.enter)="showPrevious()" (keydown.space)="showPrevious(); $event.preventDefault()">
+              <img [src]="prevSlide.imageSrc" [alt]="prevSlide.alt" loading="lazy" />
+            </article>
+          }
+
+          @if (currentSlide(); as current) {
+            <article class="queue-card queue-card-active" [attr.aria-label]="'gallery.openFullscreen' | translate" tabindex="0" role="button" (click)="openLightbox()" (keydown.enter)="openLightbox()" (keydown.space)="openLightbox(); $event.preventDefault()">
+              <img [src]="current.imageSrc" [alt]="current.alt" loading="lazy" />
+            </article>
+          }
+
+          @if (nextSlide(); as nextSlideItem) {
+            <article class="queue-card queue-card-next" [attr.aria-label]="'gallery.next' | translate" tabindex="0" role="button" (click)="showNext()" (keydown.enter)="showNext()" (keydown.space)="showNext(); $event.preventDefault()">
+              <img [src]="nextSlideItem.imageSrc" [alt]="nextSlideItem.alt" loading="lazy" />
+            </article>
+          }
+        </div>
+
+        <button class="queue-nav queue-nav-right" type="button" [attr.aria-label]="'gallery.next' | translate" (click)="showNext()">
+          <i class="pi pi-angle-right"></i>
+        </button>
+      </div>
+
+      @if (isLightboxOpen() && currentSlide(); as lightboxSlide) {
+        <div class="lightbox-backdrop" role="dialog" aria-modal="true" [attr.aria-label]="'gallery.openFullscreen' | translate" tabindex="-1" (click)="closeLightbox()" (keydown.escape)="closeLightbox()">
+          <button class="lightbox-close" type="button" [attr.aria-label]="'gallery.closeFullscreen' | translate" (click)="closeLightbox(); $event.stopPropagation()">
+            <i class="pi pi-times"></i>
+          </button>
+
+          <button class="lightbox-nav lightbox-nav-left" type="button" [attr.aria-label]="'gallery.previous' | translate" (click)="showPrevious(); $event.stopPropagation()">
+            <i class="pi pi-angle-left"></i>
+          </button>
+
+          <figure class="lightbox-frame" (click)="$event.stopPropagation()">
+            <img [src]="lightboxSlide.imageSrc" [alt]="lightboxSlide.alt" loading="lazy" />
+          </figure>
+
+          <button class="lightbox-nav lightbox-nav-right" type="button" [attr.aria-label]="'gallery.next' | translate" (click)="showNext(); $event.stopPropagation()">
+            <i class="pi pi-angle-right"></i>
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="mt-12 flex justify-center">
+    <p-button [label]="'gallery.cta' | translate" icon="pi pi-arrow-down" styleClass="cta-button" (onClick)="navigate.emit('contact')"></p-button>
+  </div>
+</section>
