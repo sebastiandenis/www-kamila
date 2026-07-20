@@ -90,11 +90,11 @@ describe('AppComponent', () => {
     expect(app.currentLanguage()).toEqual('en');
   });
 
-  it('should show gallery in desktop navigation and keep workshops only on mobile navigation', () => {
+  it('should show gallery in both navigations and keep workshops only on mobile navigation', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
     expect(app.desktopNavItems.map((item) => item.target)).toEqual(['home', 'philosophy', 'senses', 'gallery', 'about', 'contact']);
-    expect(app.mobileNavItems.map((item) => item.target)).toEqual(['home', 'philosophy', 'senses', 'about', 'workshops', 'contact']);
+    expect(app.mobileNavItems.map((item) => item.target)).toEqual(['home', 'philosophy', 'senses', 'gallery', 'about', 'workshops', 'contact']);
   });
 });

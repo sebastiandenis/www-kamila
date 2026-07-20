@@ -27,6 +27,8 @@ export class AppComponent implements AfterViewInit {
   private readonly meta = inject(Meta);
   private readonly title = inject(Title);
   private readonly translate = inject(TranslateService);
+  private soundtrack: HTMLAudioElement | null = null;
+  private removeSoundtrackActivationListeners: (() => void) | null = null;
 
   readonly currentLanguage = signal<Language>('pl');
   readonly isMobileMenuOpen = signal(false);
@@ -44,6 +46,7 @@ export class AppComponent implements AfterViewInit {
     { labelKey: 'nav.home', target: 'home' },
     { labelKey: 'nav.philosophy', target: 'philosophy' },
     { labelKey: 'nav.senses', target: 'senses' },
+    { labelKey: 'nav.gallery', target: 'gallery' },
     { labelKey: 'nav.about', target: 'about' },
     { labelKey: 'nav.workshops', target: 'workshops' },
     { labelKey: 'nav.contact', target: 'contact' },
@@ -98,7 +101,80 @@ export class AppComponent implements AfterViewInit {
 
     requestAnimationFrame(revealAnimatedElementsAboveViewport);
     window.addEventListener('scroll', revealAnimatedElementsAboveViewport, { once: true, passive: true });
-    this.destroyRef.onDestroy(() => window.removeEventListener('scroll', revealAnimatedElementsAboveViewport));
+    this.initializeSoundtrackPlayback();
+
+    this.destroyRef.onDestroy(() => {
+      window.removeEventListener('scroll', revealAnimatedElementsAboveViewport);
+      this.cleanupSoundtrackPlayback();
+    });
+  }
+
+  private initializeSoundtrackPlayback(): void {
+    const AudioConstructor = this.document.defaultView?.Audio;
+
+    if (!AudioConstructor) {
+      return;
+    }
+
+    this.soundtrack = new AudioConstructor('media/kd-soundtrack-64.mp3');
+    this.soundtrack.loop = true;
+    this.soundtrack.preload = 'auto';
+    this.soundtrack.volume = 0.55;
+
+    void this.tryPlaySoundtrack();
+  }
+
+  private async tryPlaySoundtrack(): Promise<void> {
+    if (!this.soundtrack) {
+      return;
+    }
+
+    try {
+      await this.soundtrack.play();
+      this.detachSoundtrackActivationListeners();
+    } catch {
+      this.attachSoundtrackActivationListeners();
+    }
+  }
+
+  private attachSoundtrackActivationListeners(): void {
+    const defaultView = this.document.defaultView;
+
+    if (!defaultView || this.removeSoundtrackActivationListeners) {
+      return;
+    }
+
+    const retryPlayback = () => {
+      void this.tryPlaySoundtrack();
+    };
+
+    defaultView.addEventListener('pointerdown', retryPlayback);
+    defaultView.addEventListener('keydown', retryPlayback);
+    defaultView.addEventListener('touchstart', retryPlayback, { passive: true });
+
+    this.removeSoundtrackActivationListeners = () => {
+      defaultView.removeEventListener('pointerdown', retryPlayback);
+      defaultView.removeEventListener('keydown', retryPlayback);
+      defaultView.removeEventListener('touchstart', retryPlayback);
+      this.removeSoundtrackActivationListeners = null;
+    };
+  }
+
+  private detachSoundtrackActivationListeners(): void {
+    this.removeSoundtrackActivationListeners?.();
+  }
+
+  private cleanupSoundtrackPlayback(): void {
+    this.detachSoundtrackActivationListeners();
+
+    if (!this.soundtrack) {
+      return;
+    }
+
+    this.soundtrack.pause();
+    this.soundtrack.src = '';
+    this.soundtrack.load();
+    this.soundtrack = null;
   }
 
   private revealAnimatedElementsAboveViewport(): void {
@@ -243,10 +319,10 @@ export class AppComponent implements AfterViewInit {
     const location = this.document.location;
 
     if (!location) {
-      return '/media/logo02.jpg';
+      return '/media/me3.jpg';
     }
 
-    return `${location.origin}/media/logo02.jpg`;
+    return `${location.origin}/media/me3.jpg`;
   }
 
   private updateLinkTag(rel: string, href: string, hreflang?: string): void {
