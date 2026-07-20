@@ -1,11 +1,11 @@
 <section id="about" class="section-space bg-[radial-gradient(circle_at_18%_18%,rgba(180,122,58,0.13),transparent_30%),linear-gradient(180deg,rgba(122,154,131,0.16),rgba(122,154,131,0.08))] px-5 lg:px-8">
 	<div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.85fr_1.15fr]">
-		<div pAnimateOnScroll enterClass="reveal-photo-swing" leaveClass="reveal-photo-swing-out" [once]="true" class="editorial-photo relative overflow-hidden rounded-[2.5rem] border border-[#b47a3a]/25 bg-white/30 p-3 shadow-2xl shadow-[#9b6a36]/18">
+		<div pAnimateOnScroll enterClass="reveal-photo-swing" leaveClass="reveal-photo-swing-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true" class="editorial-photo relative overflow-hidden rounded-[2.5rem] border border-[#b47a3a]/25 bg-white/30 p-3 shadow-2xl shadow-[#9b6a36]/18">
 			<div class="absolute -right-4 -top-5 h-28 w-28 rounded-full border border-gold-accent/35"></div>
 			<img class="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl shadow-forest-green/10" src="media/me.jpg" alt="Kamila Denis" />
 		</div>
 
-		<div pAnimateOnScroll enterClass="reveal-drift-right scroll-delay-1" leaveClass="reveal-drift-right-out" [once]="true">
+		<div pAnimateOnScroll enterClass="reveal-drift-right scroll-delay-1" leaveClass="reveal-drift-right-out" threshold="0.4" rootMargin="0px 0px 140px 0px" [once]="true">
 			<p class="section-kicker">{{ 'about.kicker' | translate }}</p>
 			<h2 class="section-title">{{ 'about.title' | translate }}</h2>
 			<p class="mt-7 leading-8 text-charcoal/78">{{ 'about.paragraph1' | translate }}</p>

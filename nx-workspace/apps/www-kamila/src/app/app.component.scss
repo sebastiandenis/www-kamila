@@ -302,7 +302,7 @@
 }
 
 .scroll-delay-1 {
-	animation-delay: 140ms;
+	animation-delay: 120ms;
 }
 
 .reveal-rise,
@@ -314,7 +314,7 @@
 .reveal-photo-swing,
 .reveal-panel,
 .reveal-footer {
-	animation: reveal-motion var(--reveal-duration, 820ms) var(--reveal-ease, cubic-bezier(0.2, 0.8, 0.2, 1)) both;
+	animation: reveal-motion var(--reveal-duration,660ms) var(--reveal-ease, cubic-bezier(0.2, 0.8, 0.2, 1)) both;
 	animation-delay: var(--reveal-delay, 0ms);
 }
 
@@ -325,7 +325,7 @@
 
 .reveal-zoom,
 .reveal-zoom-out {
-	--reveal-duration: 900ms;
+	--reveal-duration: 720ms;
 	--reveal-from: scale(0.94) translateY(1.25rem);
 }
 
@@ -341,33 +341,33 @@
 
 .reveal-soft,
 .reveal-soft-out {
-	--reveal-duration: 950ms;
+	--reveal-duration: 760ms;
 	--reveal-filter: blur(8px);
 	--reveal-from: translateY(1.25rem);
 }
 
 .reveal-card,
 .reveal-card-out {
-	--reveal-duration: 680ms;
+	--reveal-duration: 620ms;
 	--reveal-ease: cubic-bezier(0.18, 0.9, 0.26, 1.05);
 	--reveal-from: translateY(1.8rem) scale(0.96);
 }
 
 .reveal-photo-swing,
 .reveal-photo-swing-out {
-	--reveal-duration: 920ms;
+	--reveal-duration: 740ms;
 	--reveal-from: rotate(-2deg) translateY(2rem) scale(0.98);
 }
 
 .reveal-panel,
 .reveal-panel-out {
-	--reveal-duration: 860ms;
+	--reveal-duration: 720ms;
 	--reveal-from: perspective(900px) rotateX(5deg) translateY(2.25rem);
 }
 
 .reveal-footer,
 .reveal-footer-out {
-	--reveal-duration: 980ms;
+	--reveal-duration: 800ms;
 	--reveal-from: translateY(2.5rem) scale(0.98);
 }
 
