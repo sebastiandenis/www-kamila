@@ -26,6 +26,8 @@ import {
   tablerRipple,
   tablerSparkles,
   tablerSunHigh,
+  tablerVolume,
+  tablerVolumeOff,
   tablerX,
 } from '@ng-icons/tabler-icons';
 import packageJson from '../../../../package.json';
@@ -111,6 +113,8 @@ export const appConfig: ApplicationConfig = {
       tablerRipple,
       tablerSparkles,
       tablerSunHigh,
+      tablerVolume,
+      tablerVolumeOff,
       tablerX,
     }),
   ],

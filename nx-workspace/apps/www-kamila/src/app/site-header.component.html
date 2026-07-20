@@ -11,14 +11,24 @@
 			}
 		</div>
 
-		<div class="hidden items-center gap-2 lg:flex">
-			<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'pl'" (click)="languageSelected.emit('pl')">PL</button>
-			<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'en'" (click)="languageSelected.emit('en')">EN</button>
-		</div>
+		<div class="flex items-center gap-4">
+			<div class="flex flex-row gap-4">
+			<button class="sound-toggle" type="button" [class.is-playing]="soundtrackPlaying()" [attr.aria-label]="soundtrackPlaying() ? 'Stop soundtrack' : 'Play soundtrack'" (click)="soundtrackToggled.emit()">
+				<ng-icon [name]="soundtrackPlaying() ? 'tablerVolume' : 'tablerVolumeOff'" class="text-xl"></ng-icon>
+			</button>
 
-		<button class="flex h-11 w-11 items-center justify-center rounded-full border border-forest-green/15 text-forest-green lg:hidden" type="button" (click)="menuToggled.emit()" [attr.aria-label]="'nav.menu' | translate">
+			<div class="hidden items-center gap-2 lg:flex">
+				<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'pl'" (click)="languageSelected.emit('pl')">PL</button>
+				<button class="language-pill" type="button" [class.is-active]="currentLanguage() === 'en'" (click)="languageSelected.emit('en')">EN</button>
+			</div>
+			</div>
+
+					<button class="flex h-11 w-11 items-center justify-center rounded-full border border-forest-green/15 text-forest-green lg:hidden" type="button" (click)="menuToggled.emit()" [attr.aria-label]="'nav.menu' | translate">
 			<ng-icon [name]="isMobileMenuOpen() ? 'tablerX' : 'tablerMenu2'" class="text-2xl"></ng-icon>
 		</button>
+		</div>
+
+
 	</nav>
 
 	@if (isMobileMenuOpen()) {

@@ -28,10 +28,13 @@ export class AppComponent implements AfterViewInit {
   private readonly title = inject(Title);
   private readonly translate = inject(TranslateService);
   private soundtrack: HTMLAudioElement | null = null;
+  private isSoundtrackManuallyPaused = false;
   private removeSoundtrackActivationListeners: (() => void) | null = null;
+  private removeSoundtrackVisibilityListeners: (() => void) | null = null;
 
   readonly currentLanguage = signal<Language>('pl');
   readonly isMobileMenuOpen = signal(false);
+  readonly isSoundtrackPlaying = signal(false);
 
   readonly desktopNavItems: NavItem[] = [
     { labelKey: 'nav.home', target: 'home' },
@@ -121,20 +124,83 @@ export class AppComponent implements AfterViewInit {
     this.soundtrack.preload = 'auto';
     this.soundtrack.volume = 0.55;
 
-    void this.tryPlaySoundtrack();
+    this.attachSoundtrackVisibilityListeners();
+    void this.syncSoundtrackPlaybackToVisibility();
+  }
+
+  private attachSoundtrackVisibilityListeners(): void {
+    const defaultView = this.document.defaultView;
+
+    if (!defaultView || this.removeSoundtrackVisibilityListeners) {
+      return;
+    }
+
+    const syncPlayback = () => {
+      void this.syncSoundtrackPlaybackToVisibility();
+    };
+
+    this.document.addEventListener('visibilitychange', syncPlayback);
+    defaultView.addEventListener('pageshow', syncPlayback);
+    defaultView.addEventListener('pagehide', syncPlayback);
+
+    this.removeSoundtrackVisibilityListeners = () => {
+      this.document.removeEventListener('visibilitychange', syncPlayback);
+      defaultView.removeEventListener('pageshow', syncPlayback);
+      defaultView.removeEventListener('pagehide', syncPlayback);
+      this.removeSoundtrackVisibilityListeners = null;
+    };
+  }
+
+  private detachSoundtrackVisibilityListeners(): void {
+    this.removeSoundtrackVisibilityListeners?.();
+  }
+
+  private async syncSoundtrackPlaybackToVisibility(): Promise<void> {
+    if (!this.soundtrack) {
+      return;
+    }
+
+    if (this.document.visibilityState === 'hidden') {
+      this.soundtrack.pause();
+      this.isSoundtrackPlaying.set(false);
+      return;
+    }
+
+    if (this.soundtrack.paused && !this.isSoundtrackManuallyPaused) {
+      await this.tryPlaySoundtrack();
+    }
   }
 
   private async tryPlaySoundtrack(): Promise<void> {
-    if (!this.soundtrack) {
+    if (!this.soundtrack || this.isSoundtrackManuallyPaused) {
       return;
     }
 
     try {
       await this.soundtrack.play();
+      this.isSoundtrackPlaying.set(true);
       this.detachSoundtrackActivationListeners();
     } catch {
+      this.isSoundtrackPlaying.set(false);
       this.attachSoundtrackActivationListeners();
     }
+  }
+
+  toggleSoundtrack(): void {
+    if (!this.soundtrack) {
+      return;
+    }
+
+    if (!this.soundtrack.paused) {
+      this.isSoundtrackManuallyPaused = true;
+      this.soundtrack.pause();
+      this.isSoundtrackPlaying.set(false);
+      this.detachSoundtrackActivationListeners();
+      return;
+    }
+
+    this.isSoundtrackManuallyPaused = false;
+    void this.tryPlaySoundtrack();
   }
 
   private attachSoundtrackActivationListeners(): void {
@@ -165,7 +231,10 @@ export class AppComponent implements AfterViewInit {
   }
 
   private cleanupSoundtrackPlayback(): void {
+    this.detachSoundtrackVisibilityListeners();
     this.detachSoundtrackActivationListeners();
+    this.isSoundtrackPlaying.set(false);
+    this.isSoundtrackManuallyPaused = false;
 
     if (!this.soundtrack) {
       return;
