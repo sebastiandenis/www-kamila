@@ -1,5 +1,8 @@
+import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, Component, DestroyRef, ElementRef, ViewEncapsulation, inject, signal } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
+import { take } from 'rxjs';
 import { AboutSectionComponent } from './about-section.component';
 import { ContactSectionComponent } from './contact-section.component';
 import { HeroSectionComponent } from './hero-section.component';
@@ -18,7 +21,10 @@ import { WorkshopsSectionComponent } from './workshops-section.component';
 })
 export class AppComponent implements AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);
+  private readonly document = inject(DOCUMENT);
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly meta = inject(Meta);
+  private readonly title = inject(Title);
   private readonly translate = inject(TranslateService);
 
   readonly currentLanguage = signal<Language>('pl');
@@ -69,7 +75,12 @@ export class AppComponent implements AfterViewInit {
   ];
 
   constructor() {
-    this.translate.use(this.currentLanguage());
+    const initialLanguage = this.resolveInitialLanguage();
+
+    this.currentLanguage.set(initialLanguage);
+    this.translate.use(initialLanguage).pipe(take(1)).subscribe(() => {
+      this.applySeo(initialLanguage);
+    });
   }
 
   ngAfterViewInit(): void {
@@ -93,8 +104,15 @@ export class AppComponent implements AfterViewInit {
   }
 
   switchLanguage(language: Language): void {
+    if (language === this.currentLanguage()) {
+      this.isMobileMenuOpen.set(false);
+      return;
+    }
+
     this.currentLanguage.set(language);
-    this.translate.use(language);
+    this.translate.use(language).pipe(take(1)).subscribe(() => {
+      this.applySeo(language);
+    });
     this.isMobileMenuOpen.set(false);
   }
 
@@ -105,5 +123,132 @@ export class AppComponent implements AfterViewInit {
   scrollTo(target: string): void {
     document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     this.isMobileMenuOpen.set(false);
+  }
+
+  private resolveInitialLanguage(): Language {
+    const searchParams = new URLSearchParams(this.document.location?.search ?? '');
+    const languageFromQuery = this.asLanguage(searchParams.get('lang'));
+
+    if (languageFromQuery) {
+      return languageFromQuery;
+    }
+
+    return 'pl';
+  }
+
+  private asLanguage(candidate: string | null): Language | null {
+    if (candidate === 'pl' || candidate === 'en') {
+      return candidate;
+    }
+
+    return null;
+  }
+
+  private applySeo(language: Language): void {
+    this.document.documentElement.setAttribute('lang', language);
+    this.updateLanguageQueryParam(language);
+
+    this.translate
+      .get([
+        'seo.title',
+        'seo.description',
+        'seo.keywords',
+        'seo.siteName',
+        'seo.structuredDataDescription',
+      ])
+      .pipe(take(1))
+      .subscribe((seo) => {
+        const canonicalUrl = this.getLanguageUrl(language);
+        const alternateLanguage: Language = language === 'pl' ? 'en' : 'pl';
+
+        this.title.setTitle(seo['seo.title']);
+        this.meta.updateTag({ name: 'description', content: seo['seo.description'] });
+        this.meta.updateTag({ name: 'keywords', content: seo['seo.keywords'] });
+        this.meta.updateTag({ name: 'language', content: language });
+        this.meta.updateTag({ property: 'og:title', content: seo['seo.title'] });
+        this.meta.updateTag({ property: 'og:description', content: seo['seo.description'] });
+        this.meta.updateTag({ property: 'og:url', content: canonicalUrl });
+        this.meta.updateTag({ property: 'og:site_name', content: seo['seo.siteName'] });
+        this.meta.updateTag({ property: 'og:locale', content: language === 'pl' ? 'pl_PL' : 'en_US' });
+        this.meta.updateTag({ property: 'og:locale:alternate', content: alternateLanguage === 'pl' ? 'pl_PL' : 'en_US' });
+        this.meta.updateTag({ name: 'twitter:title', content: seo['seo.title'] });
+        this.meta.updateTag({ name: 'twitter:description', content: seo['seo.description'] });
+
+        this.updateLinkTag('canonical', canonicalUrl);
+        this.updateLinkTag('alternate', this.getLanguageUrl('pl'), 'pl');
+        this.updateLinkTag('alternate', this.getLanguageUrl('en'), 'en');
+        this.updateLinkTag('alternate', this.getLanguageUrl('pl'), 'x-default');
+
+        this.updateStructuredData(language, seo['seo.structuredDataDescription']);
+      });
+  }
+
+  private updateLanguageQueryParam(language: Language): void {
+    const location = this.document.location;
+
+    if (!location || !this.document.defaultView) {
+      return;
+    }
+
+    const url = new URL(location.href);
+
+    url.searchParams.set('lang', language);
+
+    this.document.defaultView.history.replaceState({}, '', `${url.pathname}?${url.searchParams.toString()}${url.hash}`);
+  }
+
+  private getLanguageUrl(language: Language): string {
+    const location = this.document.location;
+
+    if (!location) {
+      return `/?lang=${language}`;
+    }
+
+    return `${location.origin}${location.pathname}?lang=${language}`;
+  }
+
+  private updateLinkTag(rel: string, href: string, hreflang?: string): void {
+    const selector = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`;
+    let element = this.document.head.querySelector(selector) as HTMLLinkElement | null;
+
+    if (!element) {
+      element = this.document.createElement('link');
+      element.setAttribute('rel', rel);
+
+      if (hreflang) {
+        element.setAttribute('hreflang', hreflang);
+      }
+
+      this.document.head.appendChild(element);
+    }
+
+    element.setAttribute('href', href);
+  }
+
+  private updateStructuredData(language: Language, description: string): void {
+    let scriptElement = this.document.head.querySelector('#kamila-seo-schema') as HTMLScriptElement | null;
+
+    if (!scriptElement) {
+      scriptElement = this.document.createElement('script');
+      scriptElement.id = 'kamila-seo-schema';
+      scriptElement.type = 'application/ld+json';
+      this.document.head.appendChild(scriptElement);
+    }
+
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Kamila Denis',
+      serviceType: language === 'pl' ? 'Architektura wnętrz dobrostanu' : 'Wellbeing interior architecture',
+      description,
+      areaServed: language === 'pl' ? 'Polska' : 'Poland',
+      availableLanguage: ['pl', 'en'],
+      telephone: '+48 664 726 723',
+      email: 'kamila.denis@outlook.com',
+      sameAs: ['https://www.facebook.com/kamiladenisarchitektwnetrz'],
+      url: this.getLanguageUrl(language),
+    };
+
+    scriptElement.textContent = JSON.stringify(schema);
   }
 }
