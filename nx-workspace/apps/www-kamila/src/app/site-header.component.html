@@ -6,7 +6,7 @@
 		</button>
 
 		<div class="hidden items-center gap-7 lg:flex">
-			@for (item of navItems(); track item.target) {
+			@for (item of desktopNavItems(); track item.target) {
 				<button class="nav-link" type="button" (click)="navigate.emit(item.target)">{{ item.labelKey | translate }}</button>
 			}
 		</div>
@@ -24,7 +24,7 @@
 	@if (isMobileMenuOpen()) {
 		<div class="border-t border-forest-green/10 bg-warm-white px-5 py-5 shadow-xl lg:hidden">
 			<div class="flex flex-col gap-4">
-				@for (item of navItems(); track item.target) {
+				@for (item of mobileNavItems(); track item.target) {
 					<button class="text-left text-sm uppercase tracking-[0.18em] text-forest-green" type="button" (click)="navigate.emit(item.target)">{{ item.labelKey | translate }}</button>
 				}
 				<div class="flex items-center gap-2 border-t border-forest-green/10 pt-4">

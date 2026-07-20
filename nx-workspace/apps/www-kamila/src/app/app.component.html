@@ -1,5 +1,5 @@
 <div class="min-h-screen overflow-x-hidden bg-warm-white text-charcoal">
-	<app-site-header [navItems]="navItems" [currentLanguage]="currentLanguage()" [isMobileMenuOpen]="isMobileMenuOpen()" (navigate)="scrollTo($event)" (languageSelected)="switchLanguage($event)" (menuToggled)="toggleMobileMenu()"></app-site-header>
+	<app-site-header [desktopNavItems]="desktopNavItems" [mobileNavItems]="mobileNavItems" [currentLanguage]="currentLanguage()" [isMobileMenuOpen]="isMobileMenuOpen()" (navigate)="scrollTo($event)" (languageSelected)="switchLanguage($event)" (menuToggled)="toggleMobileMenu()"></app-site-header>
 
 	<main>
 		<app-hero-section (navigate)="scrollTo($event)"></app-hero-section>

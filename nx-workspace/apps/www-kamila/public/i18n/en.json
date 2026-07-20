@@ -3,6 +3,7 @@
 		"home": "Home",
 		"philosophy": "Philosophy",
 		"senses": "Senses in the interior",
+		"gallery": "Gallery",
 		"about": "About me",
 		"workshops": "Workshops",
 		"contact": "Contact",
@@ -17,7 +18,7 @@
 	},
 	"philosophy": {
 		"kicker": "Philosophy",
-		"title": "A space that breathes with you.",
+		"title": "A space that breathes with you",
 		"lead": "Have you ever walked into an interior that is perfect, like from a catalog, where after a split second you feel... coldness?",
 		"paragraph1": "A space that was supposed to be an oasis becomes just another furniture showroom - an alien, overstimulating place that drains your energy instead of nourishing it.",
 		"paragraph2": "I believe that your body is your first home on this Earth. The place where you live should be its natural extension - a safe shell that takes the weight of the day off your shoulders before you even have time to think about it.",
@@ -48,7 +49,7 @@
 	},
 	"gallery": {
 		"kicker": "Project gallery",
-		"title": "Interiors that restore rhythm and breath.",
+		"title": "Interiors that restore rhythm and breath",
 		"intro": "Each project begins with how you want to feel when you cross your own threshold. This curated preview shows 15 selected spaces from my interior design library, changing with every visit.",
 		"quote": "A nourishing interior is not a trend. It is a daily ritual of calm, light, and grounding.",
 		"cta": "Talk about your project",
@@ -64,12 +65,12 @@
 	},
 	"about": {
 		"kicker": "About me",
-		"title": "An architect who started designing with her heart.",
+		"title": "An architect who started designing with her heart",
 		"paragraph1": "For 24 years, I created beautiful and functional spaces in the world of classical interior architecture. However, I realized that designing matter alone is not enough. My clients often subconsciously felt a burden in their own homes. They didn't feel at home.",
-		"paragraph2": "To bring soothing comfort into interiors, I combined the precision of an architect with a sensitivity to human energy, including Total Biology, the Silva Method, and the Essence of the Divine Feminine School.",
+		"paragraph2": "To bring soothing comfort into interiors, I combined the precision of an architect with a sensitivity to human energy, including Recall Healing, the Silva Method, and the Essence of the Divine Feminine School.",
 		"manifest": "Design your joy. The ultimate luxury is finding out what truly brings us joy. A home is an investment in how deeply you can breathe when you close the door behind you.",
 		"manifestLabel": "Home manifesto",
-		"manifestLead": "Design your joy.",
+		"manifestLead": "Design your joy",
 		"manifestBody": "The ultimate luxury is finding out what truly brings us joy.",
 		"manifestClose": "A home is an investment in how deeply you can breathe when you close the door behind you."
 	},

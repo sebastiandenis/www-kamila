@@ -3,6 +3,7 @@
 		"home": "Start",
 		"philosophy": "Filozofia",
 		"senses": "Zmysły we wnętrzu",
+		"gallery": "Galeria",
 		"about": "O mnie",
 		"workshops": "Warsztaty",
 		"contact": "Kontakt",
@@ -11,13 +12,13 @@
 	"hero": {
 		"eyebrow": "Architektura dobrostanu",
 		"title": "Kamila Denis Architekt Wnętrz Dobrostanu",
-		"subtitle": "Twój dom to Twoja druga ziemska powłoka. Zaprojektujmy przestrzeń dla Twojego ciała i ducha.",
+		"subtitle": "Twój dom to Twoja druga ziemska powłoka. Zaprojektujmy przestrzeń dla Twojego ciała i duszy.",
 		"cta": "Odkryj swój dobrostan",
 		"secondaryCta": "Porozmawiajmy"
 	},
 	"philosophy": {
 		"kicker": "Filozofia",
-		"title": "Przestrzeń, która oddycha razem z Tobą.",
+		"title": "Przestrzeń, która oddycha razem z Tobą",
 		"lead": "Czy zdarzyło Ci się wejść do wnętrza idealnego jak z katalogu, w którym po ułamku sekundy czujesz... chłód?",
 		"paragraph1": "Przestrzeń, która miała być oazą, staje się kolejnym salonem meblowym - obcym, przebodźcowanym miejscem, które zamiast karmić, odbiera energię.",
 		"paragraph2": "Wierzę, że Twoje ciało to Twój pierwszy dom na tej Ziemi. Miejsce, w którym mieszkasz, powinno być jego naturalnym przedłużeniem - bezpieczną powłoką, która zdejmuje z Ciebie ciężar dnia, zanim zdążysz o tym pomyśleć.",
@@ -48,7 +49,7 @@
 	},
 	"gallery": {
 		"kicker": "Galeria realizacji",
-		"title": "Wnętrza, które przywracają rytm i oddech.",
+		"title": "Wnętrza, które przywracają rytm i oddech",
 		"intro": "Każdy projekt zaczynam od pytania, co chcesz poczuć po przekroczeniu progu własnego domu.",
 		"quote": "Kojące wnętrze nie jest trendem. To codzienny rytuał spokoju, światła i ugruntowania.",
 		"cta": "Porozmawiajmy o Twoim projekcie",
@@ -64,12 +65,12 @@
 	},
 	"about": {
 		"kicker": "O mnie",
-		"title": "Architekt, który zaczął projektować sercem.",
+		"title": "Architekt, który zaczął projektować sercem",
 		"paragraph1": "Przez 24 lata tworzyłam w świecie klasycznej architektury wnętrz piękne i funkcjonalne przestrzenie. Zrozumiałam jednak, że projektowanie samej materii to za mało. Moi klienci często podświadomie czuli ciężar we własnych domach. Nie czuli się jak u siebie.",
-		"paragraph2": "Aby wnosić do wnętrz ukojenie, połączyłam precyzję architekta z wrażliwością na energię człowieka, w tym Totalną Biologią, Metodą Silvy i Szkołą Esencji Boskiej Kobiecości.",
+		"paragraph2": "Aby wnosić do wnętrz ukojenie, połączyłam precyzję architekta z wrażliwością na energię człowieka, w tym Totalną Biologię, Metodę Silvy i Akademię Boskiej Kobiecości.",
 		"manifest": "Zaprojektuj swoją radość. Najwyższym luksusem jest dowiedzieć się, co naprawdę sprawia nam radość. Dom to inwestycja w to, jak głęboko potrafisz oddychać, kiedy zamykasz za sobą drzwi.",
 		"manifestLabel": "Manifest domu",
-		"manifestLead": "Zaprojektuj swoją radość.",
+		"manifestLead": "Zaprojektuj swoją radość",
 		"manifestBody": "Najwyższym luksusem jest dowiedzieć się, co naprawdę sprawia nam radość.",
 		"manifestClose": "Dom to inwestycja w to, jak głęboko potrafisz oddychać, kiedy zamykasz za sobą drzwi."
 	},

@@ -31,7 +31,16 @@ export class AppComponent implements AfterViewInit {
   readonly currentLanguage = signal<Language>('pl');
   readonly isMobileMenuOpen = signal(false);
 
-  readonly navItems: NavItem[] = [
+  readonly desktopNavItems: NavItem[] = [
+    { labelKey: 'nav.home', target: 'home' },
+    { labelKey: 'nav.philosophy', target: 'philosophy' },
+    { labelKey: 'nav.senses', target: 'senses' },
+    { labelKey: 'nav.gallery', target: 'gallery' },
+    { labelKey: 'nav.about', target: 'about' },
+    { labelKey: 'nav.contact', target: 'contact' },
+  ];
+
+  readonly mobileNavItems: NavItem[] = [
     { labelKey: 'nav.home', target: 'home' },
     { labelKey: 'nav.philosophy', target: 'philosophy' },
     { labelKey: 'nav.senses', target: 'senses' },

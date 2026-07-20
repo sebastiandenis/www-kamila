@@ -314,6 +314,23 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .lightbox-backdrop {
+    justify-items: center;
+  }
+
+  .lightbox-frame {
+    justify-self: center;
+    width: fit-content;
+  }
+
+  .lightbox-frame img {
+    margin-inline: auto;
+    max-width: min(78vw, 1200px);
+    width: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .queue-nav,
   .queue-card,

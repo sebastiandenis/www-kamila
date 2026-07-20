@@ -11,7 +11,8 @@ import { Language, NavItem } from './app.models';
 export class SiteHeaderComponent {
 	readonly currentLanguage = input.required<Language>();
 	readonly isMobileMenuOpen = input.required<boolean>();
-	readonly navItems = input.required<NavItem[]>();
+	readonly desktopNavItems = input.required<NavItem[]>();
+	readonly mobileNavItems = input.required<NavItem[]>();
 
 	readonly languageSelected = output<Language>();
 	readonly menuToggled = output<void>();
