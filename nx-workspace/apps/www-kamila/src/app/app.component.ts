@@ -133,7 +133,18 @@ export class AppComponent implements AfterViewInit {
       return languageFromQuery;
     }
 
-    return 'pl';
+    const navigatorLanguages = this.document.defaultView?.navigator.languages ?? [];
+    const languageCandidates = navigatorLanguages.length > 0 ? navigatorLanguages : [this.document.defaultView?.navigator.language ?? ''];
+
+    const firstSupportedLanguage = languageCandidates
+      .map((language) => language.toLowerCase())
+      .find((language) => language.startsWith('pl') || language.startsWith('en'));
+
+    if (!firstSupportedLanguage) {
+      return 'en';
+    }
+
+    return firstSupportedLanguage.startsWith('pl') ? 'pl' : 'en';
   }
 
   private asLanguage(candidate: string | null): Language | null {

@@ -1,11 +1,38 @@
 {
   "hosting": {
-    "public": "nx-workspace/dist/apps/www-kamila/browser"
-  },
-   "ignore": [
+    "public": "nx-workspace/dist/apps/www-kamila/browser",
+    "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "/i18n/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store, no-cache, must-revalidate, max-age=0"
+          },
+          {
+            "key": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "key": "Expires",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "source": "/index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      }
     ],
     "rewrites": [
       {
@@ -13,4 +40,5 @@
         "destination": "/index.html"
       }
     ]
+  }
 }

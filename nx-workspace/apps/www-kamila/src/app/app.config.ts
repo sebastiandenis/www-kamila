@@ -28,7 +28,10 @@ import {
   tablerSunHigh,
   tablerX,
 } from '@ng-icons/tabler-icons';
+import packageJson from '../../../../package.json';
 import { appRoutes } from './app.routes';
+
+const TRANSLATION_CACHE_BUSTER = packageJson.version ?? 'dev';
 
 const KamilaLightPreset = definePreset(Aura, {
   semantic: {
@@ -75,7 +78,7 @@ export const appConfig: ApplicationConfig = {
       fallbackLang: 'en',
       loader: provideTranslateHttpLoader({
         prefix: './i18n/',
-        suffix: '.json',
+        suffix: `.json?v=${TRANSLATION_CACHE_BUSTER}`,
       }),
     }),
     providePrimeNG({
