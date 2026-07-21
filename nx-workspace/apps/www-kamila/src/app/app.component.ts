@@ -143,10 +143,10 @@ export class AppComponent implements AfterViewInit {
       return;
     }
 
-    this.soundtrack = new AudioConstructor('media/kd-soundtrack-64.mp3');
+    this.soundtrack = new AudioConstructor('media/www-soundtrack.mp3');
     this.soundtrack.loop = true;
     this.soundtrack.preload = 'auto';
-    this.soundtrack.volume = 0.55;
+    this.soundtrack.volume = 0.45;
 
     this.attachSoundtrackVisibilityListeners();
     void this.syncSoundtrackPlaybackToVisibility();
